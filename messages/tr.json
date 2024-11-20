@@ -1,6 +1,12 @@
 {
-  "HomePage": {
-    "title": "Merhaba Dünya",
-    "about": "Hakkında sayfasına git"
+  "HomePage": {},
+  "Header": {
+    "navElements": {
+      "projects": "Projeler",
+      "services": "Hizmetler",
+      "pricing": "Fiyatlandırma",
+      "calculator": "Maliyet Hesaplayıcı",
+      "blog": "Blog"
+    }
   }
 }

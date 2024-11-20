@@ -1,9 +1,12 @@
 import React from "react";
-import Header from "../common/header";
+
+import { useTranslations } from "next-intl";
+import Header from "../common/Header";
 
 export default function HomePage() {
+  const t = useTranslations('HomePage')
   return (
-    <div className="mx-auto max-w-7xl px-4">
+    <div className="px-4 mx-auto max-w-7xl">
       <Header />
     </div>
   );

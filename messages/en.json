@@ -1,6 +1,12 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "HomePage": {},
+  "Header": {
+    "navElements": {
+      "projects": "Projects",
+      "services": "Services",
+      "pricing": "Pricing",
+      "calculator": "Cost Calculator",
+      "blog": "Blog"
+    }
   }
 }
