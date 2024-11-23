@@ -8,5 +8,34 @@
       "calculator": "Maliyet Hesaplayıcı",
       "blog": "Blog"
     }
+  },
+  "HeroSection": {
+    "title": {
+      "before": "Fikirlerinizi hayata geçirmek için ",
+      "highlight1": "frontend, backend, UI/UX",
+      "middle": " ve ",
+      "highlight2": "veritabanı",
+      "after": " geliştirme konusundaki uzmanlığımızdan yararlanın."
+    },
+    "subtitle": "Sizler için geleceğe yönelik yazılım çözümleri üretiyoruz. Gereksinimlerinize en uygun çözümleri hazırlıyoruz. Mobil/Web Uygulamaları geliştirme konusunda uzmanlarımızla iletişime geçin.",
+    "buttonText": "Bize Ulaşın"
+  },
+  "Comparison": {
+    "title": "Sunduğumuz Faydalar",
+    "subtitle": "Bizimle Çalışırsanız:",
+    "bullets": {
+      "0": "MVP 2-4 hafta içinde hazır",
+      "1": "$5.999'dan başlayan sabit fiyat",
+      "2": "Deneyimli ekip her şeyi halleder",
+      "3": "Haftalık güncellemeler ve hızlı yenilemeler",
+      "4": "Optimize edilmiş, modern teknoloji yığını (Next.js, React)",
+      "5": "Kurumsal düzeyde güvenlik önlemleri",
+      "6": "100.000 kullanıcıya kadar ölçeklenebilir şekilde inşa edildi",
+      "7": "Tek tıkla Vercel dağıtımı",
+      "8": "Lansman sonrası 30 gün boyunca 7/24 teknik destek",
+      "9": "Şeffaf, tüm dahil fiyatlandırma",
+      "10": "Müşteri memnuniyeti oranı %95",
+      "11": "Son teknoloji (Yapay zeka entegrasyonu hazır)"
+    }
   }
 }

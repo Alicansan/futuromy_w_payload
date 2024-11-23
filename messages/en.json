@@ -8,5 +8,48 @@
       "calculator": "Cost Calculator",
       "blog": "Blog"
     }
+  },
+  "HeroSection": {
+    "title": {
+      "before": "Effortlessly bring your ideas to life with our expertise in ",
+      "highlight1": "frontend, backend, UI/UX",
+      "middle": ", and ",
+      "highlight2": "database",
+      "after": " development."
+    },
+    "subtitle": "We create futuristic software solutions for you. Prepare best solutions for your requirements. Contact our experts in developing Mobile/Web Apps.",
+    "buttonText": "Contact Us"
+  },
+  "Comparison": {
+    "title": "With Futuromy",
+    "contitle": "Traditional Approach",
+    "bullets": [
+      "MVP ready in 2-4 weeks",
+      "Fixed price starting at $5,999",
+      "Experienced team handles everything",
+      "Weekly updates and rapid iterations",
+      "Optimized, with modern tech stacks ",
+      "Enterprise-grade security measures",
+      "Built to scale to 100,000 of users",
+      "One-click Vercel deployment",
+      "24/7 tech support for 30 days post-launch",
+      "Transparent, all-inclusive pricing",
+      "95% client satisfaction rate",
+      "Cutting-edge tech (AI integration ready)"
+    ],
+    "cons": [
+      "6-12 months of development time",
+      "$50,000+ for a basic MVP",
+      "Hiring 3-5 developers at $100k+/year each",
+      "Endless meetings and slow progress",
+      "Constant tech stack debates and changes",
+      "Security vulnerabilities from inexperience",
+      "Scalability issues as users grow",
+      "Painful deployment process taking days",
+      "Limited support during critical times",
+      "Hidden costs and scope creep",
+      "High risk of project failure (>60%)",
+      "Outdated tech by launch time"
+    ]
   }
 }
