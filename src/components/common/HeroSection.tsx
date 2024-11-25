@@ -23,7 +23,7 @@ const HeroSection = () => {
         <span className="text-primary">{t('title.highlight2')}</span>
         {t('title.after')}
       </h1>
-      <p className="font- mx-auto py-5 font-mono md:w-[55vw] md:text-xl">
+      <p className="mx-auto max-w-5xl py-5 font-mono md:w-[55vw] md:text-xl">
         {t('subtitle')}
       </p>
       <Button className="">{t('buttonText')}</Button>
