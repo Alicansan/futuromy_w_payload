@@ -15,7 +15,7 @@ const HeroSection = () => {
   const t = useTranslations('HeroSection');
 
   return (
-    <div className="container mx-auto flex flex-col items-center py-12 text-center">
+    <div className="container mx-auto flex max-w-7xl flex-col items-center py-12 text-center">
       <h1 className="mx-auto text-2xl font-black uppercase md:w-[40vw] md:text-4xl">
         {t('title.before')}
         <span className="text-primary">{t('title.highlight1')}</span>

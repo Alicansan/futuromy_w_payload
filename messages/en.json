@@ -69,5 +69,62 @@
       }
     ],
     "Estimate": "Estimate your MVP"
+  },
+  "Packages": {
+    "title": "Affordable MVP 100% Done-For-You",
+    "package": [
+      {
+        "icon": "House",
+        "header": "Lite",
+        "price": "$5,699",
+        "paragraph": "Bring your own design and wireframe for 1-2 core features",
+        "list": [
+          "No design or wireframe",
+          "2-week delivery",
+          "1-2 core MVP features",
+          "1 round of revisions",
+          "Basic hosting setup",
+          "Deploy & setup domain"
+        ]
+      },
+      {
+        "icon": "HousePlus",
+        "header": "Plus",
+        "price": "$7,699",
+        "paragraph": "Perfect balance of features and cost",
+        "list": [
+          "3-week delivery",
+          "Functional application design",
+          "2-4 core MVP features",
+          "2 rounds of revisions",
+          "Advanced hosting setup",
+          "SEO optimization",
+          "Analytics integration",
+          "1 month post-launch support"
+        ]
+      },
+      {
+        "icon": "Castle",
+        "header": "Premium",
+        "price": "$9,699",
+        "paragraph": "Everything you need for a successful launch",
+        "list": [
+          "Full application design",
+          "4-8 core MVP features",
+          "3 rounds of revisions",
+          "Advanced optimization",
+          "3 months of post-launch support",
+          "SEO optimization",
+          "CI/CD pipeline",
+          "Analytics integration",
+          "User feedback system",
+          "A/B testing setup",
+          "Basic API documentation",
+          "Security audit",
+          "Performance monitoring",
+          "Conversion optimization"
+        ]
+      }
+    ]
   }
 }

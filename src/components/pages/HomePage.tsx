@@ -6,16 +6,18 @@ import HeroSection from '../common/HeroSection';
 import Comparison from '../../components/common/Comparison';
 import InfiniteScroll from '@/components/common/InfiniteScroll';
 import ThreeSteps from '@/components/common/ThreeSteps';
+import Packages from '../common/Packages';
 export default function HomePage() {
   const t = useTranslations('HomePage');
   return (
-    <div className="w- relative z-0 mx-auto max-w-7xl px-4">
+    <div className="relative z-0 mx-auto px-4">
       <Header />
       <HeroSection />
       <InfiniteScroll />
       <Comparison />
       <InfiniteScroll rotate />
       <ThreeSteps />
+      <Packages />
     </div>
   );
 }
