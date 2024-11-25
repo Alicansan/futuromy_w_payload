@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import LocaleSwitcher from './LocaleSwitcher';
+import LocaleSwitcher from '../LocaleSwitcher';
 import { useTranslations } from 'next-intl';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 const navElements = [

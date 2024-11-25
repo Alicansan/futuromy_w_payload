@@ -16,9 +16,9 @@ interface InfiniteScrollProps {
 const InfiniteScroll = ({ rotate }: InfiniteScrollProps) => {
   return (
     <div
-      className={`inline-flex w-full flex-nowrap ${rotate ? '-rotate-3' : ''}`}
+      className={`my-24 inline-flex w-full flex-nowrap ${rotate ? '-rotate-3' : ''}`}
     >
-      <ul className="animate-infinite-scroll flex max-w-none items-center justify-center md:justify-start">
+      <ul className="flex max-w-none animate-infinite-scroll items-center justify-center md:justify-start">
         {placeholdup.map((item) => (
           <li key={item.id}>
             <div
@@ -30,7 +30,7 @@ const InfiniteScroll = ({ rotate }: InfiniteScrollProps) => {
           </li>
         ))}
       </ul>
-      <ul className="animate-infinite-scroll flex max-w-none items-center justify-center md:justify-start">
+      <ul className="flex max-w-none animate-infinite-scroll items-center justify-center md:justify-start">
         {placeholdup.map((item) => (
           <li key={item.id}>
             <div

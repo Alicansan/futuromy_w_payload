@@ -61,7 +61,7 @@ const Comparison = () => {
         </TabsContent>
       </Tabs>
       <div className="mx-auto hidden w-full max-w-6xl gap-4 px-8 min-[770px]:flex lg:flex-row">
-        <div className="mx-auto my-12 flex flex-col items-center rounded-2xl border-2 bg-secondary p-4 text-center shadow-inner">
+        <div className="mx-auto my-12 flex flex-col items-center rounded-2xl border-2 bg-secondary p-4 py-6 text-center shadow-inner">
           <h1 className="mx-auto max-w-min text-nowrap border-b-2 pb-2 font-bold md:w-[90vw] md:text-xl">
             {t('contitle')}
           </h1>
@@ -80,7 +80,7 @@ const Comparison = () => {
             ))}
           </div>
         </div>
-        <div className="mx-auto my-12 flex flex-col items-center rounded-2xl border-2 bg-secondary p-4 text-center shadow-inner">
+        <div className="mx-auto my-12 flex flex-col items-center rounded-2xl border-2 bg-secondary p-4 py-6 text-center shadow-inner">
           <h1 className="mx-auto max-w-min text-nowrap border-b-2 pb-2 font-bold md:w-[90vw] md:text-xl">
             {t('title')}
           </h1>

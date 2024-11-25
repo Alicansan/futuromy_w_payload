@@ -51,5 +51,23 @@
       "High risk of project failure (>60%)",
       "Outdated tech by launch time"
     ]
+  },
+  "ThreeSteps": {
+    "header": "3 steps to launch your MVP",
+    "steps": [
+      {
+        "head": "1) Choose your plan",
+        "parag": "Select the plan that fits your needs and budget"
+      },
+      {
+        "head": "2) Define your MVP",
+        "parag": "We chat about your idea in call, then send you a Notion doc with your MVP and weekly dev plan"
+      },
+      {
+        "head": "3) Launch in 2 weeks",
+        "parag": "We deploy your MVP in first week on Vercel, ready for you to test and iterate"
+      }
+    ],
+    "Estimate": "Estimate your MVP"
   }
 }
