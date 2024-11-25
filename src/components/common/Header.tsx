@@ -50,12 +50,8 @@ export default function Header() {
           />
         </Link>
 
-        <div className="flex flex-col items-center">
-          <button
-            className="md:hidden"
-            aria-label="Toggle Menu"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+        <div className="flex flex-col items-center md:hidden">
+          <button aria-label="Toggle Menu" onClick={() => setIsOpen(!isOpen)}>
             {!isOpen ? <Menu /> : <X />}
           </button>
         </div>
@@ -73,7 +69,7 @@ export default function Header() {
         </nav>
         {isOpen && (
           <nav className="z-20 flex basis-full flex-col items-center bg-background transition-all md:hidden">
-            <div className="absolute right-0 top-0 mt-2 flex md:hidden">
+            <div className="absolute right-0 top-0 mt-12 flex md:hidden">
               <LocaleSwitcher />
             </div>
             {navElements.map((element) => (

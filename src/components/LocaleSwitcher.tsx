@@ -29,7 +29,7 @@ const LocaleSwitcher = () => {
   return (
     <Select defaultValue={localeActive} onValueChange={onSelectChange}>
       <SelectTrigger
-        className="mt-11 border-none bg-transparent p-0 font-mono text-sm md:mt-1.5"
+        className="border-none bg-transparent p-0 font-mono text-sm md:mt-1.5"
         disabled={isPending}
       >
         <SelectValue

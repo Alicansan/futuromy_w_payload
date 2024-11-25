@@ -92,7 +92,7 @@ const Comparison = () => {
                 className="flex h-[4rem] w-full items-center gap-2 border-b-[1px]"
               >
                 <p className="flex text-start font-mono text-sm md:text-base">
-                  <X className="mr-2 text-primary" width={18} height={18} />{' '}
+                  <Check className="mr-2 text-primary" width={18} height={18} />{' '}
                   {t(`bullets.${element}`)}
                 </p>
               </div>
