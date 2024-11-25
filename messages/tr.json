@@ -2,10 +2,10 @@
   "HomePage": {},
   "Header": {
     "navElements": {
-      "projects": "Projeler",
-      "services": "Hizmetler",
-      "pricing": "Fiyatlandırma",
-      "calculator": "Maliyet Hesaplayıcı",
+      "projects": "Projects",
+      "services": "Services",
+      "pricing": "Pricing",
+      "calculator": "Cost Calculator",
       "blog": "Blog"
     }
   },
@@ -21,21 +21,110 @@
     "buttonText": "Bize Ulaşın"
   },
   "Comparison": {
-    "title": "Sunduğumuz Faydalar",
-    "subtitle": "Bizimle Çalışırsanız:",
-    "bullets": {
-      "0": "MVP 2-4 hafta içinde hazır",
-      "1": "$5.999'dan başlayan sabit fiyat",
-      "2": "Deneyimli ekip her şeyi halleder",
-      "3": "Haftalık güncellemeler ve hızlı yenilemeler",
-      "4": "Optimize edilmiş, modern teknoloji yığını (Next.js, React)",
-      "5": "Kurumsal düzeyde güvenlik önlemleri",
-      "6": "100.000 kullanıcıya kadar ölçeklenebilir şekilde inşa edildi",
-      "7": "Tek tıkla Vercel dağıtımı",
-      "8": "Lansman sonrası 30 gün boyunca 7/24 teknik destek",
-      "9": "Şeffaf, tüm dahil fiyatlandırma",
-      "10": "Müşteri memnuniyeti oranı %95",
-      "11": "Son teknoloji (Yapay zeka entegrasyonu hazır)"
-    }
+    "title": "With Futuromy",
+    "contitle": "Traditional Approach",
+    "bullets": [
+      "MVP ready in 2-4 weeks",
+      "Fixed price starting at $5,999",
+      "Experienced team handles everything",
+      "Weekly updates and rapid iterations",
+      "Optimized, with modern tech stacks ",
+      "Enterprise-grade security measures",
+      "Built to scale to 100,000 of users",
+      "One-click Vercel deployment",
+      "24/7 tech support for 30 days post-launch",
+      "Transparent, all-inclusive pricing",
+      "95% client satisfaction rate",
+      "Cutting-edge tech (AI integration ready)"
+    ],
+    "cons": [
+      "6-12 months of development time",
+      "$50,000+ for a basic MVP",
+      "Hiring 3-5 developers at $100k+/year each",
+      "Endless meetings and slow progress",
+      "Constant tech stack debates and changes",
+      "Security vulnerabilities from inexperience",
+      "Scalability issues as users grow",
+      "Painful deployment process taking days",
+      "Limited support during critical times",
+      "Hidden costs and scope creep",
+      "High risk of project failure (>60%)",
+      "Outdated tech by launch time"
+    ]
+  },
+  "ThreeSteps": {
+    "header": "3 steps to launch your MVP",
+    "steps": [
+      {
+        "head": "1) Choose your plan",
+        "parag": "Select the plan that fits your needs and budget"
+      },
+      {
+        "head": "2) Define your MVP",
+        "parag": "We chat about your idea in call, then send you a Notion doc with your MVP and weekly dev plan"
+      },
+      {
+        "head": "3) Launch in 2 weeks",
+        "parag": "We deploy your MVP in first week on Vercel, ready for you to test and iterate"
+      }
+    ],
+    "Estimate": "Estimate your MVP"
+  },
+  "Packages": {
+    "title": "Affordable MVP 100% Done-For-You",
+    "package": [
+      {
+        "icon": "House",
+        "header": "Lite",
+        "price": "$5,699",
+        "paragraph": "Bring your own design and wireframe for 1-2 core features",
+        "list": [
+          "No design or wireframe",
+          "2-week delivery",
+          "1-2 core MVP features",
+          "1 round of revisions",
+          "Basic hosting setup",
+          "Deploy & setup domain"
+        ]
+      },
+      {
+        "icon": "HousePlus",
+        "header": "Plus",
+        "price": "$7,699",
+        "paragraph": "Perfect balance of features and cost",
+        "list": [
+          "3-week delivery",
+          "Functional application design",
+          "2-4 core MVP features",
+          "2 rounds of revisions",
+          "Advanced hosting setup",
+          "SEO optimization",
+          "Analytics integration",
+          "1 month post-launch support"
+        ]
+      },
+      {
+        "icon": "Castle",
+        "header": "Premium",
+        "price": "$9,699",
+        "paragraph": "Everything you need for a successful launch",
+        "list": [
+          "Full application design",
+          "4-8 core MVP features",
+          "3 rounds of revisions",
+          "Advanced optimization",
+          "3 months of post-launch support",
+          "SEO optimization",
+          "CI/CD pipeline",
+          "Analytics integration",
+          "User feedback system",
+          "A/B testing setup",
+          "Basic API documentation",
+          "Security audit",
+          "Performance monitoring",
+          "Conversion optimization"
+        ]
+      }
+    ]
   }
 }

@@ -24,7 +24,6 @@ const LocaleSwitcher = () => {
   const languages = [
     { code: 'en', label: 'English' },
     { code: 'tr', label: 'Türkçe' },
-    { code: 'de', label: 'Deutsch' },
   ];
 
   return (
