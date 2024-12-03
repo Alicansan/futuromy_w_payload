@@ -151,7 +151,14 @@ const QuestionPanel = () => {
               )}
             </div>
 
-            <Button className="mx-auto my-9">
+            <Button
+              className="mx-auto my-9"
+              onClick={() => {
+                setCurrentQuestionIndex(0);
+                setSelectedAnswer(0);
+                setShowResult(false);
+              }}
+            >
               Recalculate <RotateCw />{' '}
             </Button>
           </div>
