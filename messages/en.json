@@ -163,5 +163,38 @@
     "designed": "Designed by Futuromy",
     "terms": "Terms and Conditions",
     "privacy": "Privacy Policy"
+  },
+  "AppointmentPicker": {
+    "header": "Still have questions?",
+    "paragraph": "Completely understand. We want to help you if A) you're not sure what type of MVP you need, B) you're not sure how to get started"
+  },
+  "QuestionPanel": {
+    "header1": "We help you pick the right plan",
+    "header2": "How much to build your MVP?",
+    "resultheader": "Based on your answers, we recommend:",
+    "questions": [
+      {
+        "question": "What is your primary goal?",
+        "answers": [
+          "Validate Idea",
+          "Test Market",
+          "Attract Investors",
+          "Get Eearly Users"
+        ]
+      },
+      {
+        "question": "What is your budget?",
+        "answers": ["Low", "Medium", "High"]
+      },
+      {
+        "question": "How quickly do you need it?",
+        "answers": ["ASAP", "Within a month", "3-6 months"]
+      },
+      {
+        "question": "How complex is your idea?",
+
+        "answers": ["Simple", "Modarate", "Complex"]
+      }
+    ]
   }
 }

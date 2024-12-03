@@ -70,6 +70,7 @@
     ],
     "Estimate": "Estimate your MVP"
   },
+
   "Packages": {
     "title": "Affordable MVP 100% Done-For-You",
     "package": [
@@ -126,5 +127,46 @@
         ]
       }
     ]
+  },
+  "Faq": {
+    "faqs": "FAQS",
+    "header": "Common Questions",
+    "topics": [
+      {
+        "question": "Why not hire a full-time developer?",
+        "answer": "Hiring a full-time developer can be expensive and time-consuming. With AstroMVP, you get a team of experienced developers working on your project for a fraction of the cost and time."
+      },
+      {
+        "question": "Who is this service most helpful for?",
+        "answer": "AstroMVP is ideal for startups, entrepreneurs, and businesses looking to quickly validate their ideas or launch new products without the overhead of a full development team."
+      },
+      {
+        "question": "What if I need help with a more unique MVP?",
+        "answer": "We're equipped to handle a wide range of MVP types. For unique requirements, we offer custom solutions. Contact us to discuss your specific needs."
+      },
+      {
+        "question": "Are refunds available?",
+        "answer": "We put a lot of time and effort into your project, so we don't offer refunds. However, we're committed to your satisfaction and will work hard to address any concerns."
+      }
+    ]
+  },
+  "Footer": {
+    "paragraph": "Gathering ideas and thoughts on sheets of paper and lists. Works every time with great results! Giving shape to thoughts and ideas using the tools we`ve got and the skills we master with passion! Transforming designs into real, awesome, ready to be used products, enjoyed by our users!",
+    "links": [
+      "Blog",
+      "Process",
+      "Pricing",
+      "MVP Calculator",
+      "Case Studies",
+      "FAQs"
+    ],
+    "reserved": "Copyright © Futuromy. All Rights Reserved",
+    "designed": "Designed by Futuromy",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy"
+  },
+  "AppointmentPicker": {
+    "header": "Still have questions?",
+    "paragraph": "Completely understand. We want to help you if A) you're not sure what type of MVP you need, B) you're not sure how to get started"
   }
 }

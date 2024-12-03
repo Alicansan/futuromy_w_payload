@@ -6,7 +6,7 @@ const bulletElements = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const Comparison = () => {
   const t = useTranslations('Comparison');
   return (
-    <section className="mx-auto px-4">
+    <section className="mx-auto px-4" id="services">
       <Tabs
         defaultValue="withFuturomy"
         className="mx-auto my-12 flex max-w-[560px] flex-col min-[770px]:hidden"

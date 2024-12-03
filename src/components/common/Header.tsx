@@ -1,17 +1,19 @@
 'use client';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import LocaleSwitcher from '../LocaleSwitcher';
+import { Link } from '@/i18n/routing';
+import React, { useState } from 'react';
+
 import { useTranslations } from 'next-intl';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import ClientLinkWithRef from 'node_modules/next-intl/dist/types/src/navigation/react-client/ClientLink';
+import LocaleSwitcher from './LocaleSwitcher';
 const navElements = [
-  { href: '#projects', key: 'projects' },
-  { href: '#services', key: 'services' },
-  { href: '#pricing', key: 'pricing' },
-  { href: '#calculator', key: 'calculator' },
-  { href: '#blog', key: 'blog' },
+  { href: '/#projects', key: 'projects' },
+  { href: '/#services', key: 'services' },
+  { href: '/#pricing', key: 'pricing' },
+  { href: '/costcalculator', key: 'calculator', isHash: false },
+  { href: '/blog', key: 'blog', isHash: false },
 ];
 
 export default function Header() {
@@ -29,9 +31,39 @@ export default function Header() {
   });
   const t = useTranslations('Header');
 
+  const handleScrollToSection = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+  ) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    if (!href) return;
+
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      // Close mobile menu if open
+      setIsOpen(false);
+
+      // Get the header height for offset
+      const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+
+      // Calculate the element's position relative to the viewport
+      const elementPosition = element.getBoundingClientRect().top;
+      // Add current scroll position to get absolute position
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <motion.header
-      className="sticky top-0 bg-background py-2"
+      className="sticky top-0 z-40 bg-background py-2"
       variants={{
         visible: { y: 0 },
         hidden: { y: '-100%' },
@@ -59,9 +91,12 @@ export default function Header() {
         <nav className="z-20 hidden items-center space-x-8 md:flex">
           {navElements.map((element) => (
             <Link
-              className="text-nowrap font-mono font-medium hover:text-gray-500"
+              className="text-nowrap font-mono font-medium hover:text-muted-foreground"
               key={element.key}
               href={element.href}
+              onClick={
+                element.href.startsWith('#') ? handleScrollToSection : undefined
+              }
             >
               {t(`navElements.${element.key}`)}
             </Link>
@@ -74,9 +109,14 @@ export default function Header() {
             </div>
             {navElements.map((element) => (
               <Link
-                className="py-2 font-mono text-sm font-medium focus:text-gray-500"
+                className="py-2 font-mono text-sm font-medium focus:text-muted-foreground"
                 key={element.key}
                 href={element.href}
+                onClick={
+                  element.href.startsWith('#')
+                    ? handleScrollToSection
+                    : undefined
+                }
               >
                 {t(`navElements.${element.key}`)}
               </Link>

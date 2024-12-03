@@ -26,7 +26,16 @@ const HeroSection = () => {
       <p className="mx-auto max-w-5xl py-5 font-mono md:w-[55vw] md:text-xl">
         {t('subtitle')}
       </p>
-      <Button className="">{t('buttonText')}</Button>
+      <Button
+        className=""
+        onClick={() =>
+          document.getElementById('appointment')?.scrollIntoView({
+            behavior: 'smooth',
+          })
+        }
+      >
+        {t('buttonText')}
+      </Button>
 
       <div className="mx-auto grid grid-cols-1 py-12 md:grid-cols-2 lg:grid-cols-3">
         {placeholdup.map((item, index) => (

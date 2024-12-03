@@ -6,7 +6,7 @@ const Packages = () => {
   const pack = t.raw('package');
 
   return (
-    <section className="mx-auto my-24 max-w-7xl px-4">
+    <section className="mx-auto my-24 max-w-7xl px-4" id="pricing">
       <h1 className="my-12 text-center text-5xl font-bold">{t('title')}</h1>
       <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
         {pack.map(
@@ -26,7 +26,7 @@ const Packages = () => {
             return (
               <div
                 key={index}
-                className="boder-muted r flex h-full min-h-[830px] w-full max-w-full flex-col items-start justify-between rounded-xl border-2 p-6 shadow-inner md:max-w-[300px]"
+                className="r flex h-full min-h-[830px] w-full max-w-full flex-col items-start justify-between rounded-xl border-2 border-muted p-6 shadow-inner md:max-w-[300px]"
               >
                 <div className="flex flex-col">
                   <h1 className="inline-flex w-full items-start gap-3 border-b-2 pb-2 text-xl font-semibold">

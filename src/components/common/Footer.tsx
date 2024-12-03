@@ -10,9 +10,9 @@ const Footer = () => {
   const links = t.raw('links');
 
   return (
-    <footer className="mx-auto my-4 max-w-7xl border-y-4 px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="mx-auto my-4 max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex flex-row justify-between">
-        <div className="max-w-xl">
+        <div className="mx-auto flex max-w-xl flex-col items-center">
           <Link href="/">
             <Image
               alt="futuromy.com"
@@ -22,18 +22,18 @@ const Footer = () => {
               height={42}
             />
           </Link>
-          <p className="text-sm">{t('paragraph')}</p>
-        </div>
-        <div className="flex gap-4">
-          <Link href="https://github.com/Futuromy">
-            <Github />
-          </Link>
-          <Link href="https://www.linkedin.com/company/futuromy/posts/?feedView=all">
-            <Linkedin />
-          </Link>
+          <p className="my-4 text-sm">{t('paragraph')}</p>
+          <div className="flex gap-4">
+            <Link href="https://github.com/Futuromy">
+              <Github />
+            </Link>
+            <Link href="https://www.linkedin.com/company/futuromy/posts/?feedView=all">
+              <Linkedin />
+            </Link>
+          </div>
         </div>
       </div>
-      <div className="justify- 2 my-4 flex w-full justify-start gap-6 border-b-2 py-2 text-muted-foreground">
+      <div className="2 mx-auto my-4 flex w-full flex-col items-center justify-center gap-6 border-b-2 py-2 text-muted-foreground sm:flex-row">
         {links.map((item: string, index: number) => (
           <Link key={index} href="/">
             {item}

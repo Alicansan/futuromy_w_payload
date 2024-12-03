@@ -65,3 +65,24 @@
     @apply bg-background text-foreground;
   }
 }
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .calendly-inline-widget iframe {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .calendly-inline-widget iframe::-webkit-scrollbar {
+    display: none !important;
+  }
+}

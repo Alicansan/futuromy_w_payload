@@ -37,6 +37,7 @@
     "next-intl": "^3.25.1",
     "payload": "^3.1.0",
     "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-calendly": "^4.3.1",
     "react-country-flag": "^3.1.0",
     "react-day-picker": "8.10.1",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",

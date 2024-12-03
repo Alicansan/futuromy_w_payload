@@ -78,6 +78,9 @@ importers:
       react:
         specifier: 19.0.0-rc-65a56d0e-20241020
         version: 19.0.0-rc-65a56d0e-20241020
+      react-calendly:
+        specifier: ^4.3.1
+        version: 4.3.1(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)
       react-country-flag:
         specifier: ^3.1.0
         version: 3.1.0(react@19.0.0-rc-65a56d0e-20241020)
@@ -3960,6 +3963,13 @@ packages:
     peerDependencies:
       react: '>=15.6.2'
       react-dom: '>=15.6.2'
+
+  react-calendly@4.3.1:
+    resolution: {integrity: sha512-poyUH3NOUOlsotr8ho5WzbsbPuRAppaY+Jvu+C/PkwTP6WT807pNFI8+HrbbuRknXZbd75zpzysOJQvcu3P8Pg==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   react-country-flag@3.1.0:
     resolution: {integrity: sha512-JWQFw1efdv9sTC+TGQvTKXQg1NKbDU2mBiAiRWcKM9F1sK+/zjhP2yGmm8YDddWyZdXVkR8Md47rPMJmo4YO5g==}
@@ -9273,6 +9283,11 @@ snapshots:
     dependencies:
       classnames: 2.5.1
       prop-types: 15.8.1
+      react: 19.0.0-rc-65a56d0e-20241020
+      react-dom: 19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020)
+
+  react-calendly@4.3.1(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020):
+    dependencies:
       react: 19.0.0-rc-65a56d0e-20241020
       react-dom: 19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020)
 

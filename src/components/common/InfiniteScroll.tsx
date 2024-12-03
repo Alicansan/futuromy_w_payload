@@ -15,7 +15,7 @@ interface InfiniteScrollProps {
 
 const InfiniteScroll = ({ rotate }: InfiniteScrollProps) => {
   return (
-    <div
+    <section
       className={`relative -z-10 my-24 inline-flex w-full flex-nowrap overflow-hidden ${rotate ? '-rotate-3' : ''}`}
     >
       <ul className="flex max-w-none animate-infinite-scroll items-center justify-center md:justify-start">
@@ -42,7 +42,7 @@ const InfiniteScroll = ({ rotate }: InfiniteScrollProps) => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 
