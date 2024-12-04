@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { RotateCw } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import PopupAppointment from '@/components/common/PopupAppointment';
 
 interface PackItem {
   icon: string;
@@ -144,7 +145,7 @@ const QuestionPanel = () => {
                           ))}
                         </ul>
                       </div>
-                      <Button className="mx-auto w-full">Book a Call</Button>
+                      <PopupAppointment />
                     </div>
                   );
                 },
@@ -159,7 +160,7 @@ const QuestionPanel = () => {
                 setShowResult(false);
               }}
             >
-              Recalculate <RotateCw />{' '}
+              {t('recalculate')} <RotateCw />{' '}
             </Button>
           </div>
         )}

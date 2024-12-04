@@ -27,7 +27,8 @@ const ThreeSteps = () => {
         ))}
       </div>
       <Button>
-        Estimate your MVP <ArrowRight />
+        {t('Estimate')}
+        <ArrowRight />
       </Button>
     </section>
   );

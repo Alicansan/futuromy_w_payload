@@ -72,6 +72,7 @@
   },
   "Packages": {
     "title": "Affordable MVP 100% Done-For-You",
+    "appointmentButton": "Book a call",
     "package": [
       {
         "icon": "House",
@@ -166,12 +167,15 @@
   },
   "AppointmentPicker": {
     "header": "Still have questions?",
-    "paragraph": "Completely understand. We want to help you if A) you're not sure what type of MVP you need, B) you're not sure how to get started"
+    "paragraph": "Completely understand. We want to help you if A) you're not sure what type of MVP you need, B) you're not sure how to get started",
+    "appointmentButton": "Book a call"
   },
   "QuestionPanel": {
     "header1": "We help you pick the right plan",
     "header2": "How much to build your MVP?",
     "resultheader": "Based on your answers, we recommend:",
+    "recalculate": "Recalculate",
+    "book": "Book a Call",
     "questions": [
       {
         "question": "What is your primary goal?",

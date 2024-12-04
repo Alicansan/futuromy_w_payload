@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import * as LucideIcons from 'lucide-react';
 import { Button } from '../ui/button';
@@ -45,7 +46,16 @@ const Packages = () => {
                     ))}
                   </ul>
                 </div>
-                <Button className="w-full">Book a Call</Button>
+                <Button
+                  className="w-full"
+                  onClick={() =>
+                    document.getElementById('appointment')?.scrollIntoView({
+                      behavior: 'smooth',
+                    })
+                  }
+                >
+                  {t('appointmentButton')}
+                </Button>
               </div>
             );
           },

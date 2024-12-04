@@ -11,6 +11,7 @@ import Faq from '../common/Faq';
 import AppointmentPicker from '../common/AppointmentPicker';
 
 import Projects from '../common/Projects';
+import PopupAppointment from '../common/PopupAppointment';
 export default function HomePage() {
   const t = useTranslations('HomePage');
   return (
