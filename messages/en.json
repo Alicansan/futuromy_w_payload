@@ -18,9 +18,13 @@
       "after": " development."
     },
     "subtitle": "We create futuristic software solutions for you. Prepare best solutions for your requirements. Contact our experts in developing Mobile/Web Apps.",
-    "buttonText": "Contact Us"
+    "buttonText": "Book your ciscovery call",
+    "noCommitment": "No commitment. Book a free 30-minute call today.",
+    "launch": "Launch in 2 weeks"
   },
   "Comparison": {
+    "miniTitle": "MVPS ARE EXPENSIVE (and hard to plan)",
+    "bigTitle": "Why Futuromy?",
     "title": "With Futuromy",
     "contitle": "Traditional Approach",
     "bullets": [

@@ -29,7 +29,7 @@ const LocaleSwitcher = () => {
   return (
     <Select defaultValue={localeActive} onValueChange={onSelectChange}>
       <SelectTrigger
-        className="border-none bg-transparent p-0 font-mono text-sm md:mt-1.5"
+        className="border-none bg-transparent p-0 text-sm md:mt-1.5"
         disabled={isPending}
       >
         <SelectValue
@@ -40,11 +40,7 @@ const LocaleSwitcher = () => {
       </SelectTrigger>
       <SelectContent>
         {languages.map((lang) => (
-          <SelectItem
-            key={lang.code}
-            value={lang.code}
-            className="font-mono text-sm"
-          >
+          <SelectItem key={lang.code} value={lang.code} className="text-sm">
             {lang.label}
           </SelectItem>
         ))}{' '}

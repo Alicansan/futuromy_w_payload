@@ -91,7 +91,7 @@ export default function Header() {
         <nav className="z-20 hidden items-center space-x-8 md:flex">
           {navElements.map((element) => (
             <Link
-              className="text-nowrap font-mono font-medium hover:text-muted-foreground"
+              className="text-nowrap font-medium hover:text-muted-foreground"
               key={element.key}
               href={element.href}
               onClick={
@@ -109,7 +109,7 @@ export default function Header() {
             </div>
             {navElements.map((element) => (
               <Link
-                className="py-2 font-mono text-sm font-medium focus:text-muted-foreground"
+                className="py-2 text-sm font-medium focus:text-muted-foreground"
                 key={element.key}
                 href={element.href}
                 onClick={

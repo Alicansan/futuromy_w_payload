@@ -36,8 +36,7 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        dancingScript: ['var(--font-dancing-script)'], // Changed from --font-dancing
       },
       borderRadius: {
         lg: 'var(--radius)',

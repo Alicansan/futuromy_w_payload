@@ -4,8 +4,9 @@ import { notFound } from 'next/navigation';
 import { routing } from 'src/i18n/routing';
 import type { Metadata } from 'next';
 import './globals.css';
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
+import { Dancing_Script } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
+
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 export const metadata: Metadata = {
@@ -16,6 +17,16 @@ export const metadata: Metadata = {
   },
 };
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-dancing-script',
+});
 export default async function LocaleLayout({
   children,
   params,
@@ -36,7 +47,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${spaceGrotesk.className} ${dancingScript.variable}`}
     >
       <body>
         <NextIntlClientProvider messages={messages}>

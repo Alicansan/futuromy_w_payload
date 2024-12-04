@@ -16,26 +16,31 @@ const HeroSection = () => {
 
   return (
     <div className="container mx-auto flex max-w-7xl flex-col items-center py-12 text-center">
-      <h1 className="mx-auto text-2xl font-black uppercase md:w-[40vw] md:text-4xl">
+      <h1 className="mx-auto text-2xl font-black sm:text-3xl md:w-[50vw] md:text-5xl lg:text-7xl">
         {t('title.before')}
         <span className="text-primary">{t('title.highlight1')}</span>
         {t('title.middle')}
         <span className="text-primary">{t('title.highlight2')}</span>
         {t('title.after')}
       </h1>
-      <p className="mx-auto max-w-5xl py-5 font-mono md:w-[55vw] md:text-xl">
+      <p className="mx-auto max-w-5xl py-5 text-muted-foreground md:w-[55vw] md:text-xl">
         {t('subtitle')}
       </p>
       <Button
-        className=""
+        size="xl"
         onClick={() =>
           document.getElementById('appointment')?.scrollIntoView({
             behavior: 'smooth',
           })
         }
       >
-        {t('buttonText')}
+        <p className="text-base font-semibold md:text-lg">{t('buttonText')}</p>
       </Button>
+      <p className="p-3 text-sm text-muted-foreground"> {t('noCommitment')} </p>
+      <p className="font-dancingScript text-5xl text-popover">
+        {' '}
+        {t('launch')}{' '}
+      </p>
 
       <div className="mx-auto grid grid-cols-1 py-12 md:grid-cols-2 lg:grid-cols-3">
         {placeholdup.map((item, index) => (
