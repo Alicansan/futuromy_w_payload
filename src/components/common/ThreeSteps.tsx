@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import { Button } from '../ui/button';
+import { Link } from '@/i18n/routing';
 
 const ThreeSteps = () => {
   const t = useTranslations('ThreeSteps');
@@ -26,10 +27,12 @@ const ThreeSteps = () => {
           </div>
         ))}
       </div>
-      <Button>
-        {t('Estimate')}
-        <ArrowRight />
-      </Button>
+      <Link href="/costcalculator">
+        <Button>
+          {t('Estimate')}
+          <ArrowRight />
+        </Button>
+      </Link>
     </section>
   );
 };
