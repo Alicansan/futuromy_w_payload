@@ -62,7 +62,7 @@ const QuestionPanel = () => {
     setNewPack([pack[determinePackage(selectedAnswer)]]);
   }, [selectedAnswer]);
   return (
-    <section className="flex flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-8">
+    <section className="mx-auto flex max-w-7xl flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-14">
       <h2 className="mb-4 text-lg font-semibold text-primary">
         {t('header1')}
       </h2>
@@ -94,7 +94,7 @@ const QuestionPanel = () => {
                 ),
               )}
             </div>
-            <div className="mt-6 w-full rounded-full bg-popover">
+            <div className="mt-6 w-full rounded-full bg-background">
               <div
                 className={cn(
                   'h-2 rounded-full bg-chart-4 transition-all duration-300 ease-out',
@@ -104,7 +104,7 @@ const QuestionPanel = () => {
             </div>
           </div>
         ) : (
-          <div className="mx-auto my-12 flex max-w-7xl flex-col items-center px-4">
+          <div className="mx-auto my-2 flex max-w-7xl flex-col items-center px-4">
             <h1 className="my-12 text-center text-3xl">{t('resultheader')}</h1>
             <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
               {newPack.map(
@@ -124,7 +124,7 @@ const QuestionPanel = () => {
                   return (
                     <div
                       key={index}
-                      className="r flex h-full min-h-[830px] w-full max-w-full flex-col items-start justify-between rounded-xl border-2 border-muted bg-popover p-6 shadow-inner md:max-w-[300px]"
+                      className="r min-h-auto flex h-full w-full max-w-full flex-col items-start justify-between rounded-xl border-[1px] border-muted-foreground bg-background p-6 shadow-inner md:max-w-[300px]"
                     >
                       <div className="flex flex-col">
                         <h1 className="inline-flex w-full items-start gap-3 border-b-2 pb-2 text-xl font-semibold">
@@ -153,7 +153,7 @@ const QuestionPanel = () => {
             </div>
 
             <Button
-              className="mx-auto my-9"
+              className="mx-auto my-9 border-2 border-popover bg-background text-primary hover:text-background"
               onClick={() => {
                 setCurrentQuestionIndex(0);
                 setSelectedAnswer(0);

@@ -21,6 +21,8 @@
     "buttonText": "Bize Ulaşın"
   },
   "Comparison": {
+    "miniTitle": "MVPS ARE EXPENSIVE (and hard to plan)",
+    "bigTitle": "Why Futuromy?",
     "title": "With Futuromy",
     "contitle": "Traditional Approach",
     "bullets": [
@@ -70,9 +72,9 @@
     ],
     "Estimate": "Estimate your MVP"
   },
-
   "Packages": {
     "title": "Affordable MVP 100% Done-For-You",
+    "appointmentButton": "Book a call",
     "package": [
       {
         "icon": "House",
