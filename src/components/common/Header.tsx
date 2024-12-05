@@ -20,16 +20,19 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const [previousScroll, setPreviousScroll] = useState<number>(0);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    const previous = scrollY.getPrevious();
-    if (latest > previous && latest > 150) {
+    const current = latest;
+    if (current > previousScroll && current > 150) {
       setHidden(true);
     } else {
       setHidden(false);
     }
+    setPreviousScroll(current);
   });
 
+  // Rest of the component remains the same...
   const t = useTranslations('Header');
 
   const handleScrollToSection = (
@@ -56,7 +59,6 @@ export default function Header() {
     }
   };
 
-  // Handle clicking outside the menu to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const nav = document.getElementById('mobile-nav');
@@ -123,7 +125,6 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mobile Navigation */}
         <div
           id="mobile-nav"
           className={`absolute left-0 right-0 top-14 z-20 bg-background transition-all duration-300 md:hidden ${
