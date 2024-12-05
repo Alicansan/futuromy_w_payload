@@ -156,14 +156,7 @@
   },
   "Footer": {
     "paragraph": "Gathering ideas and thoughts on sheets of paper and lists. Works every time with great results! Giving shape to thoughts and ideas using the tools we`ve got and the skills we master with passion! Transforming designs into real, awesome, ready to be used products, enjoyed by our users!",
-    "links": [
-      "Blog",
-      "Process",
-      "Pricing",
-      "MVP Calculator",
-      "Case Studies",
-      "FAQs"
-    ],
+    "links": ["Blog", "Services", "Pricing", "MVP Calculator", "FAQs"],
     "reserved": "Copyright © Futuromy. All Rights Reserved",
     "designed": "Designed by Futuromy",
     "terms": "Terms and Conditions",
