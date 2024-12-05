@@ -8,7 +8,7 @@ const Comparison = () => {
   return (
     <section className="mx-auto items-center px-4" id="services">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-center">
-        <h2 className="py-4 text-center font-semibold text-popover">
+        <h2 className="py-4 text-center font-semibold text-primary">
           {t('miniTitle')}{' '}
         </h2>
         <h1 className="text-center text-5xl font-bold">{t('bigTitle')} </h1>
@@ -33,7 +33,7 @@ const Comparison = () => {
         </TabsList>
         <TabsContent value="traditional">
           <div className="mx-auto flex flex-col items-center rounded-2xl border-2 border-b-0 bg-background p-4 text-start shadow-inner">
-            <div className="w-full flex-grow space-y-4">
+            <div className="mb-4 w-full flex-grow space-y-4">
               {bulletElements.map((element) => (
                 <div
                   key={element}
@@ -50,7 +50,7 @@ const Comparison = () => {
         </TabsContent>
         <TabsContent value="withFuturomy">
           <div className="mx-auto flex flex-col items-center rounded-2xl border-2 border-b-0 bg-background p-4 text-start shadow-inner">
-            <div className="w-full flex-grow space-y-4">
+            <div className="mb-4 w-full flex-grow space-y-4">
               {bulletElements.map((element) => (
                 <div
                   key={element}
@@ -72,14 +72,14 @@ const Comparison = () => {
             {t('contitle')}
           </h1>
 
-          <div className="mx-auto flex flex-col align-middle">
+          <div className="mx-auto mb-4 flex flex-col align-middle">
             {bulletElements.map((element) => (
               <div
                 key={element}
                 className="flex h-[4rem] w-full items-center gap-2 border-b-[1px]"
               >
                 <p className="flex text-start text-sm md:text-base">
-                  <X className="mr-2 text-popover" width={18} height={18} />{' '}
+                  <X className="mr-2 text-primary" width={18} height={18} />{' '}
                   {t(`cons.${element}`)}
                 </p>
               </div>
@@ -91,14 +91,14 @@ const Comparison = () => {
             {t('title')}
           </h1>
 
-          <div className="mx-auto flex flex-col align-middle">
+          <div className="mx-auto mb-4 flex flex-col align-middle">
             {bulletElements.map((element) => (
               <div
                 key={element}
                 className="flex h-[4rem] w-full items-center gap-2 border-b-[1px]"
               >
                 <p className="flex text-start text-sm md:text-base">
-                  <Check className="mr-2 text-popover" width={18} height={18} />{' '}
+                  <Check className="mr-2 text-primary" width={18} height={18} />{' '}
                   {t(`bullets.${element}`)}
                 </p>
               </div>

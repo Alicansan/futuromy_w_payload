@@ -47,7 +47,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${spaceGrotesk.className} ${dancingScript.variable}`}
+      className={`${spaceGrotesk.className} ${dancingScript.variable} scroll-smooth`}
     >
       <body>
         <NextIntlClientProvider messages={messages}>

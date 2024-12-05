@@ -2,12 +2,12 @@
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import ClientLinkWithRef from 'node_modules/next-intl/dist/types/src/navigation/react-client/ClientLink';
 import LocaleSwitcher from './LocaleSwitcher';
+
 const navElements = [
   { href: '/#projects', key: 'projects' },
   { href: '/#services', key: 'services' },
@@ -22,13 +22,14 @@ export default function Header() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    const previous: any = scrollY.getPrevious();
+    const previous = scrollY.getPrevious();
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
       setHidden(false);
     }
   });
+
   const t = useTranslations('Header');
 
   const handleScrollToSection = (
@@ -42,15 +43,9 @@ export default function Header() {
     const element = document.getElementById(targetId);
 
     if (element) {
-      // Close mobile menu if open
       setIsOpen(false);
-
-      // Get the header height for offset
       const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-
-      // Calculate the element's position relative to the viewport
       const elementPosition = element.getBoundingClientRect().top;
-      // Add current scroll position to get absolute position
       const offsetPosition =
         elementPosition + window.pageYOffset - headerHeight;
 
@@ -60,6 +55,27 @@ export default function Header() {
       });
     }
   };
+
+  // Handle clicking outside the menu to close it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const nav = document.getElementById('mobile-nav');
+      const menuButton = document.getElementById('menu-button');
+
+      if (
+        isOpen &&
+        nav &&
+        !nav.contains(event.target as Node) &&
+        menuButton &&
+        !menuButton.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   return (
     <motion.header
@@ -83,7 +99,11 @@ export default function Header() {
         </Link>
 
         <div className="flex flex-col items-center md:hidden">
-          <button aria-label="Toggle Menu" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            id="menu-button"
+            aria-label="Toggle Menu"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {!isOpen ? <Menu /> : <X />}
           </button>
         </div>
@@ -102,27 +122,37 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        {isOpen && (
-          <nav className="z-20 flex basis-full flex-col items-center bg-background transition-all md:hidden">
-            <div className="absolute right-0 top-0 mt-12 flex md:hidden">
-              <LocaleSwitcher />
-            </div>
-            {navElements.map((element) => (
-              <Link
-                className="py-2 text-sm font-medium focus:text-muted-foreground"
-                key={element.key}
-                href={element.href}
-                onClick={
-                  element.href.startsWith('#')
-                    ? handleScrollToSection
-                    : undefined
+
+        {/* Mobile Navigation */}
+        <div
+          id="mobile-nav"
+          className={`absolute left-0 right-0 top-14 z-20 bg-background transition-all duration-300 md:hidden ${
+            isOpen
+              ? 'flex flex-col items-center opacity-100'
+              : 'invisible h-0 opacity-0'
+          }`}
+        >
+          <div className="absolute right-0 top-0 mt-2 flex md:hidden">
+            <LocaleSwitcher />
+          </div>
+          {navElements.map((element) => (
+            <Link
+              className="py-2 text-sm font-medium focus:text-muted-foreground"
+              key={element.key}
+              href={element.href}
+              onClick={(e) => {
+                if (element.href.startsWith('#')) {
+                  handleScrollToSection(e);
+                } else {
+                  setIsOpen(false);
                 }
-              >
-                {t(`navElements.${element.key}`)}
-              </Link>
-            ))}
-          </nav>
-        )}
+              }}
+            >
+              {t(`navElements.${element.key}`)}
+            </Link>
+          ))}
+        </div>
+
         <div className="hidden md:flex">
           <LocaleSwitcher />
         </div>

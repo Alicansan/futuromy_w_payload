@@ -7,6 +7,7 @@ import { RotateCw } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PopupAppointment from '@/components/common/PopupAppointment';
+import Link from 'next/link';
 
 interface PackItem {
   icon: string;
@@ -62,7 +63,10 @@ const QuestionPanel = () => {
     setNewPack([pack[determinePackage(selectedAnswer)]]);
   }, [selectedAnswer]);
   return (
-    <section className="mx-auto flex max-w-7xl flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-14">
+    <section
+      id="start"
+      className="mx-auto flex max-w-7xl flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-14"
+    >
       <h2 className="mb-4 text-lg font-semibold text-primary">
         {t('header1')}
       </h2>
@@ -152,16 +156,18 @@ const QuestionPanel = () => {
               )}
             </div>
 
-            <Button
-              className="mx-auto my-9 border-2 border-popover bg-background text-primary hover:text-background"
-              onClick={() => {
-                setCurrentQuestionIndex(0);
-                setSelectedAnswer(0);
-                setShowResult(false);
-              }}
-            >
-              {t('recalculate')} <RotateCw />{' '}
-            </Button>
+            <Link href="#start">
+              <Button
+                className="mx-auto my-9 border-2 border-primary bg-background text-primary hover:text-background"
+                onClick={() => {
+                  setCurrentQuestionIndex(0);
+                  setSelectedAnswer(0);
+                  setShowResult(false);
+                }}
+              >
+                {t('recalculate')} <RotateCw />{' '}
+              </Button>
+            </Link>
           </div>
         )}
       </div>
