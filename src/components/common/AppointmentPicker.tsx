@@ -6,7 +6,7 @@ import { InlineWidget } from 'react-calendly';
 const AppointmentPicker = () => {
   const t = useTranslations('AppointmentPicker');
   return (
-    <div className="mx-auto max-w-7xl" id="appointment">
+    <div className="container mx-auto" id="appointment">
       <div>
         <h1 className="text-center text-3xl font-bold md:text-5xl">
           {t('header')}{' '}

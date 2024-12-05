@@ -4,7 +4,7 @@ export default function TermsAndConditions() {
   const t = useTranslations('termsAndConditions');
 
   return (
-    <div className="mx-auto my-4 max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="container mx-auto my-4 px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="text-center text-3xl font-bold sm:text-4xl md:text-5xl">
         {t('title')}
       </h1>

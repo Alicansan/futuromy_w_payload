@@ -89,7 +89,7 @@ export default function Header() {
       animate={hidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
     >
-      <div className="sticky top-0 z-20 mx-auto flex h-12 max-w-7xl flex-wrap justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container sticky top-0 z-20 mx-auto flex h-12 flex-wrap justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/">
           <Image
             alt="futuromy.com"

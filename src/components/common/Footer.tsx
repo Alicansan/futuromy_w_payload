@@ -10,7 +10,7 @@ const Footer = () => {
   const links = t.raw('links');
 
   return (
-    <footer className="mx-auto my-4 max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="container mx-auto my-4 px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex flex-row justify-between">
         <div className="mx-auto flex max-w-xl flex-col items-center">
           <Link href="/">

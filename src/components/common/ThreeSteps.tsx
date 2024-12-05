@@ -8,7 +8,7 @@ const ThreeSteps = () => {
   const t = useTranslations('ThreeSteps');
   const steps = t.raw('steps');
   return (
-    <section className="mx-auto my-44 flex max-w-7xl flex-col items-center justify-center px-12">
+    <section className="container mx-auto my-44 flex flex-col items-center justify-center px-12">
       <h1 className="py-7 text-3xl font-bold md:text-4xl">{t('header')}</h1>
       <div className="mb-8 grid w-full max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {steps.map((step: { head: string; parag: string }, index: number) => (

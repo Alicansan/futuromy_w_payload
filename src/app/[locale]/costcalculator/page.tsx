@@ -65,7 +65,7 @@ const QuestionPanel = () => {
   return (
     <section
       id="start"
-      className="mx-auto flex max-w-7xl flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-14"
+      className="container mx-auto flex flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-14"
     >
       <h2 className="mb-4 text-lg font-semibold text-primary">
         {t('header1')}
@@ -108,7 +108,7 @@ const QuestionPanel = () => {
             </div>
           </div>
         ) : (
-          <div className="mx-auto my-2 flex max-w-7xl flex-col items-center px-4">
+          <div className="container mx-auto my-2 flex flex-col items-center px-4">
             <h1 className="my-12 text-center text-3xl">{t('resultheader')}</h1>
             <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
               {newPack.map(

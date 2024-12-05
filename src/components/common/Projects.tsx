@@ -12,7 +12,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="mx-auto flex max-w-7xl flex-col items-center py-12 text-center"
+      className="mx-auto flex flex-col items-center py-12 text-center"
     >
       <div className="mx-auto grid grid-cols-1 py-12 md:grid-cols-2 lg:grid-cols-3">
         {placeholdup.map((item, index) => (

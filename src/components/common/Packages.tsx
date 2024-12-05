@@ -7,7 +7,7 @@ const Packages = () => {
   const pack = t.raw('package');
 
   return (
-    <section className="mx-auto my-24 max-w-7xl px-4" id="pricing">
+    <section className="container mx-auto my-24 px-4" id="pricing">
       <h1 className="my-12 text-center text-5xl font-bold">{t('title')}</h1>
       <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
         {pack.map(
