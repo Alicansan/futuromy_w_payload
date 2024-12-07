@@ -8,7 +8,7 @@ const Packages = () => {
 
   return (
     <section className="container mx-auto my-24 px-4" id="pricing">
-      <h1 className="my-12 text-center text-5xl font-bold">{t('title')}</h1>
+      <h1 className="my-12 text-center   text-2xl md:text-5xl font-bold">{t('title')}</h1>
       <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
         {pack.map(
           (

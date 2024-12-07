@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { useTranslations } from 'next-intl';
-
 import HeroSection from '../common/HeroSection';
 import Comparison from '../../components/common/Comparison';
 import InfiniteScroll from '@/components/common/InfiniteScroll';
@@ -9,9 +7,8 @@ import ThreeSteps from '@/components/common/ThreeSteps';
 import Packages from '../common/Packages';
 import Faq from '../common/Faq';
 import AppointmentPicker from '../common/AppointmentPicker';
-
 import Projects from '../common/Projects';
-import PopupAppointment from '../common/PopupAppointment';
+
 export default function HomePage() {
   const t = useTranslations('HomePage');
   return (
@@ -24,6 +21,7 @@ export default function HomePage() {
       <Packages />
       <Faq />
       <AppointmentPicker />
+     
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function TermsAndConditions() {
 
   return (
     <div className="container mx-auto my-4 px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-center text-3xl font-bold sm:text-4xl md:text-5xl">
+      <h1 className="text-center text-3xl py-4 font-bold sm:text-4xl md:text-5xl">
         {t('title')}
       </h1>
 
@@ -28,7 +28,7 @@ export default function TermsAndConditions() {
       </h3>
       <p>{t('license.p1')}</p>
       <p>{t('license.p2')}</p>
-      <ul>
+      <ul className="list-disc pl-6">
         {t
           .raw('license.restrictions')
           .map((restriction: string, index: string) => (
@@ -36,7 +36,6 @@ export default function TermsAndConditions() {
           ))}
       </ul>
 
-      {/* Continue with other sections... */}
     </div>
   );
 }
