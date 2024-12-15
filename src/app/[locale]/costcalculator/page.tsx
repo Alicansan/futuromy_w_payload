@@ -1,13 +1,13 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import React, { useEffect, useState } from 'react';
+"use client";
+import { useTranslations } from "next-intl";
+import React, { useEffect, useState } from "react";
 
-import { cn } from '@/lib/utils';
-import { RotateCw } from 'lucide-react';
-import * as LucideIcons from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import PopupAppointment from '@/components/common/PopupAppointment';
-import Link from 'next/link';
+import { cn } from "@/lib/utils";
+import { RotateCw } from "lucide-react";
+import * as LucideIcons from "lucide-react";
+import { Button } from "@/components/ui/button";
+import PopupAppointment from "@/components/common/PopupAppointment";
+import Link from "next/link";
 
 interface PackItem {
   icon: string;
@@ -41,75 +41,66 @@ const QuestionPanel = () => {
   const getProgressWidth = (index: number) => {
     switch (index) {
       case 0:
-        return 'w-1/4';
+        return "w-1/4";
       case 1:
-        return 'w-1/2';
+        return "w-1/2";
       case 2:
-        return 'w-3/4';
+        return "w-3/4";
       case 3:
-        return 'w-full';
+        return "w-full";
       default:
-        return 'w-0';
+        return "w-0";
     }
   };
 
-  const t = useTranslations('QuestionPanel');
-  const quiz = t.raw('questions');
+  const t = useTranslations("QuestionPanel");
+  const quiz = t.raw("questions");
 
-  const q = useTranslations('Packages');
-  const pack = q.raw('package');
+  const q = useTranslations("Packages");
+  const pack = q.raw("package");
 
   useEffect(() => {
     setNewPack([pack[determinePackage(selectedAnswer)]]);
-  }, [selectedAnswer]);
+  }, [selectedAnswer, pack]);
   return (
     <section
       id="start"
       className="container mx-auto flex flex-col items-center px-4 py-12 sm:px-6 md:py-20 lg:px-14"
     >
-      <h2 className="mb-4 text-lg font-semibold text-primary">
-        {t('header1')}
-      </h2>
-      <h1 className="mb-6 text-center text-3xl font-bold sm:text-5xl md:mb-8">
-        {' '}
-        {t('header2')}
-      </h1>
+      <h2 className="mb-4 text-lg font-semibold text-primary">{t("header1")}</h2>
+      <h1 className="mb-6 text-center text-3xl font-bold sm:text-5xl md:mb-8"> {t("header2")}</h1>
       <div className="mb-12 w-full rounded-3xl bg-muted p-8 shadow-inner">
         {!showResult ? (
           <div className="flex flex-col items-center">
-            <h1 className="mb-6 text-center text-xl">
-              {quiz[currentQuestionIndex].question}
-            </h1>
+            <h1 className="mb-6 text-center text-xl">{quiz[currentQuestionIndex].question}</h1>
             <div className="grid w-full max-w-md grid-cols-2 gap-4">
-              {quiz[currentQuestionIndex].answers.map(
-                (answer: string, index: number) => (
-                  <Button
-                    key={index}
-                    onClick={() => {
-                      handleNextQuestion();
-                      if (currentQuestionIndex > 0) {
-                        setSelectedAnswer((prev) => prev + index);
-                      }
-                    }}
-                    className="border-2 border-primary bg-background text-foreground hover:text-primary-foreground"
-                  >
-                    {answer}
-                  </Button>
-                ),
-              )}
+              {quiz[currentQuestionIndex].answers.map((answer: string, index: number) => (
+                <Button
+                  key={index}
+                  onClick={() => {
+                    handleNextQuestion();
+                    if (currentQuestionIndex > 0) {
+                      setSelectedAnswer((prev) => prev + index);
+                    }
+                  }}
+                  className="border-2 border-primary bg-background text-foreground hover:text-primary-foreground"
+                >
+                  {answer}
+                </Button>
+              ))}
             </div>
             <div className="mt-6 w-full rounded-full bg-background">
               <div
                 className={cn(
-                  'h-2 rounded-full bg-chart-4 transition-all duration-300 ease-out',
-                  getProgressWidth(currentQuestionIndex),
+                  "h-2 rounded-full bg-chart-4 transition-all duration-300 ease-out",
+                  getProgressWidth(currentQuestionIndex)
                 )}
               ></div>
             </div>
           </div>
         ) : (
           <div className="container mx-auto my-2 flex flex-col items-center px-4">
-            <h1 className="my-12 text-center text-3xl">{t('resultheader')}</h1>
+            <h1 className="my-12 text-center text-3xl">{t("resultheader")}</h1>
             <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
               {newPack.map(
                 (
@@ -120,7 +111,7 @@ const QuestionPanel = () => {
                     paragraph: string;
                     list: string[];
                   },
-                  index: number,
+                  index: number
                 ) => {
                   const IconComponent = LucideIcons[
                     item.icon as keyof typeof LucideIcons
@@ -132,19 +123,14 @@ const QuestionPanel = () => {
                     >
                       <div className="flex flex-col">
                         <h1 className="inline-flex w-full items-start gap-3 border-b-2 pb-2 text-xl font-semibold">
-                          {item.header} {IconComponent && <IconComponent />}{' '}
+                          {item.header} {IconComponent && <IconComponent />}{" "}
                         </h1>
-                        <h2 className="py-2 text-3xl font-bold">
-                          {item.price}
-                        </h2>
-                        <p className="pb-3 text-sm text-muted-foreground">
-                          {item.paragraph}{' '}
-                        </p>
+                        <h2 className="py-2 text-3xl font-bold">{item.price}</h2>
+                        <p className="pb-3 text-sm text-muted-foreground">{item.paragraph} </p>
                         <ul className="flex flex-col">
                           {item.list.map((listItem: string, index: number) => (
                             <li key={index} className="inline-flex py-2">
-                              <LucideIcons.Check className="mr-2 text-primary" />{' '}
-                              {listItem}
+                              <LucideIcons.Check className="mr-2 text-primary" /> {listItem}
                             </li>
                           ))}
                         </ul>
@@ -152,7 +138,7 @@ const QuestionPanel = () => {
                       <PopupAppointment />
                     </div>
                   );
-                },
+                }
               )}
             </div>
 
@@ -165,7 +151,7 @@ const QuestionPanel = () => {
                   setShowResult(false);
                 }}
               >
-                {t('recalculate')} <RotateCw />{' '}
+                {t("recalculate")} <RotateCw />{" "}
               </Button>
             </Link>
           </div>
