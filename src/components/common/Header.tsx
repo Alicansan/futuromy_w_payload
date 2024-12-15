@@ -7,8 +7,6 @@ import { useTranslations } from 'next-intl';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import ClientLinkWithRef from 'node_modules/next-intl/dist/types/src/navigation/react-client/ClientLink';
 import LocaleSwitcher from './LocaleSwitcher';
-import { ModeToggle } from './ModeToggle';
-
 
 const navElements = [
   { href: '/#projects', key: 'projects' },
@@ -137,10 +135,6 @@ export default function Header() {
         >
           <div className="absolute right-0 top-0 mt-2 flex md:hidden">
             <LocaleSwitcher />
-            
-          </div>
-          <div className="absolute right-0 bottom-0 mt-2 flex md:hidden">
-          <ModeToggle/>
           </div>
           {navElements.map((element) => (
             <Link
@@ -160,13 +154,9 @@ export default function Header() {
           ))}
         </div>
 
-        <div className="hidden md:flex gap-2">
+        <div className="hidden md:flex">
           <LocaleSwitcher />
-          <ModeToggle/>
         </div>
-        
-         
-        
       </div>
     </motion.header>
   );

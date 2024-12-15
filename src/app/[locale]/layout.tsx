@@ -9,8 +9,6 @@ import { Space_Grotesk } from 'next/font/google';
 
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
-import { ThemeProvider } from '@/components/common/ThemeProvider';
-
 export const metadata: Metadata = {
   title: 'Futuromy',
   description: 'Futuristic Way of Deployment',
@@ -29,7 +27,6 @@ const dancingScript = Dancing_Script({
   weight: ['400', '500', '700'],
   variable: '--font-dancing-script',
 });
-
 export default async function LocaleLayout({
   children,
   params,
@@ -53,20 +50,11 @@ export default async function LocaleLayout({
       className={`${spaceGrotesk.className} ${dancingScript.variable} scroll-smooth`}
     >
       <body>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
         <NextIntlClientProvider messages={messages}>
-          
-            <Header />
-            {children}
-            <Footer />
-          
+          <Header />
+          {children}
+          <Footer />
         </NextIntlClientProvider>
-        </ThemeProvider>
       </body>
     </html>
   );

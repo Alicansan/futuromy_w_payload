@@ -6,7 +6,7 @@ const Privacy = () => {
   return (
     <div className="container mx-auto my-4 px-4 py-12 sm:px-6 lg:px-8">
       <div>
-        <h1 className="text-center py-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+        <h1 className="text-center text-3xl font-bold sm:text-4xl md:text-5xl">
           {t('title')}
         </h1>
 
@@ -30,7 +30,7 @@ const Privacy = () => {
           {t('informationUsage.title')}
         </h2>
         <p>{t('informationUsage.intro')}</p>
-        <ul className="list-disc pl-6">
+        <ul>
           {t.raw('informationUsage.uses').map((use: string, index: number) => (
             <li key={index}>{use}</li>
           ))}
