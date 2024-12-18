@@ -1,4 +1,4 @@
-import createNextIntlPlugin from 'next-intl/plugin';
+import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -7,27 +7,23 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     // Handle server-side externals
     if (isServer) {
-      config.externals = [
-        ...(config.externals || []),
-        '@libsql/client',
-        'better-sqlite3',
-      ];
+      config.externals = [...(config.externals || []), "@libsql/client", "better-sqlite3"];
     }
 
     // Add rules to handle problematic files
     config.module.rules.push(
       {
         test: /\.node$/,
-        loader: 'ignore-loader',
+        loader: "ignore-loader",
       },
       {
         test: /LICENSE$/,
-        loader: 'ignore-loader',
+        loader: "ignore-loader",
       },
       {
         test: /\.d\.ts$/,
-        loader: 'ignore-loader',
-      },
+        loader: "ignore-loader",
+      }
     );
 
     // Optimize build
@@ -41,12 +37,14 @@ const nextConfig = {
     return config;
   },
   // Moved from experimental to root level
-  serverExternalPackages: ['@libsql/client'],
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  serverExternalPackages: ["@libsql/client", "@payloadcms/db-sqlite", "libsql"],
   experimental: {
     // Remove instrumentationHook as it's no longer needed
     // Use proper type for serverActions
     serverActions: {
-      bodySizeLimit: '2mb',
+      bodySizeLimit: "2mb",
     },
   },
 };

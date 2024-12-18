@@ -17,25 +17,25 @@ const fetchBlogPosts = cache(async () => {
       collection: "blog-posts",
       depth: 1,
     });
-    
+
     console.log("Blog posts retrieved:", blogPosts);
-    
+
     if (!blogPosts || !blogPosts.docs) {
       console.error("No blog posts found or invalid response");
       return { docs: [] };
     }
-    
+
     return blogPosts;
   } catch (error) {
     console.error("Critical error in fetchBlogPosts:", error);
-    
+
     // Log more detailed error information
     if (error instanceof Error) {
       console.error("Error name:", error.name);
       console.error("Error message:", error.message);
       console.error("Error stack:", error.stack);
     }
-    
+
     return { docs: [] };
   }
 });
@@ -54,26 +54,24 @@ export default async function Blog() {
     }
 
     return (
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-24">
+      <div className="container mx-auto grid grid-cols-1 gap-12 py-24 md:grid-cols-2">
         {blog.docs.map((post) => (
           <Link key={post.id} href={`/blog/${post.slug}`}>
             <div className="flex max-w-3xl gap-2 bg-primary-foreground p-2 shadow-xl">
-              {post.featuredImage && 
-               typeof post.featuredImage !== "number" && 
-               post.featuredImage.url && (
-                <Image
-                  className="object-contain p-2"
-                  src={post.featuredImage.url}
-                  alt={post.title || "Blog post image"}
-                  width={100}
-                  height={100}
-                />
-              )}
+              {post.featuredImage &&
+                typeof post.featuredImage !== "number" &&
+                post.featuredImage.url && (
+                  <Image
+                    className="object-contain p-2"
+                    src={post.featuredImage.url}
+                    alt={post.title || "Blog post image"}
+                    width={100}
+                    height={100}
+                  />
+                )}
               <div className="flex w-full flex-col justify-between">
                 <div className="flex flex-col">
-                  <h2 className="py-2 text-2xl font-semibold text-destructive">
-                    {post.title}
-                  </h2>
+                  <h2 className="py-2 text-2xl font-semibold text-destructive">{post.title}</h2>
                   <p>{post.context}</p>
                 </div>
                 {/* <RichText data={post.content} /> */}
