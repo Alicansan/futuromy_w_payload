@@ -1,18 +1,26 @@
 import { getPayload } from "payload";
+import { cache } from "react";
 //import { RichText } from "@payloadcms/richtext-lexical/react";
 
 import config from "@payload-config";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 
-export default async function Blog() {
-  const payload = await getPayload({ config });
+const fetchBlogPosts = cache(async () => {
+  try {
+    const payload = await getPayload({ config });
+    return await payload.find({
+      collection: "blog-posts",
+      depth: 1,
+    });
+  } catch (error) {
+    console.error("Failed to fetch blog posts:", error);
+    return { docs: [] };
+  }
+});
 
-  const blog = await payload.find({
-    collection: "blog-posts",
-    depth: 1,
-  });
-  console.log(blog.docs);
+export default async function Blog() {
+  const blog = await fetchBlogPosts();
 
   if (!blog || blog.docs.length === 0) return <div>No blog posts</div>;
   return (
