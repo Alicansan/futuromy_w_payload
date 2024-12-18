@@ -8,17 +8,12 @@ import { Link } from "@/i18n/routing";
 
 const fetchBlogPosts = cache(async () => {
   try {
-    console.log("Attempting to initialize payload with config:", config);
     const payload = await getPayload({ config });
-    console.log("Payload initialized successfully");
 
-    console.log("Attempting to find blog posts");
     const blogPosts = await payload.find({
       collection: "blog-posts",
       depth: 1,
     });
-
-    console.log("Blog posts retrieved:", blogPosts);
 
     if (!blogPosts || !blogPosts.docs) {
       console.error("No blog posts found or invalid response");
@@ -64,7 +59,7 @@ export default async function Blog() {
                   <Image
                     className="object-contain p-2"
                     src={post.featuredImage.url}
-                    alt={post.title || "Blog post image"}
+                    alt={post.featuredImage.alt || "Blog post image"}
                     width={100}
                     height={100}
                   />

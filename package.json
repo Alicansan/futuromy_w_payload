@@ -20,6 +20,7 @@
     "@payloadcms/next": "^3.7.0",
     "@payloadcms/payload-cloud": "^3.7.0",
     "@payloadcms/richtext-lexical": "^3.7.0",
+    "@payloadcms/storage-uploadthing": "^3.7.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-dialog": "^1.1.3",
     "@radix-ui/react-label": "^2.1.1",
