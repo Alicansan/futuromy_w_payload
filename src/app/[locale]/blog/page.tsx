@@ -8,29 +8,59 @@ import { Link } from "@/i18n/routing";
 
 const fetchBlogPosts = cache(async () => {
   try {
+    console.log("Attempting to initialize payload with config:", config);
     const payload = await getPayload({ config });
-    return await payload.find({
+    console.log("Payload initialized successfully");
+
+    console.log("Attempting to find blog posts");
+    const blogPosts = await payload.find({
       collection: "blog-posts",
       depth: 1,
     });
+    
+    console.log("Blog posts retrieved:", blogPosts);
+    
+    if (!blogPosts || !blogPosts.docs) {
+      console.error("No blog posts found or invalid response");
+      return { docs: [] };
+    }
+    
+    return blogPosts;
   } catch (error) {
-    console.error("Failed to fetch blog posts:", error);
+    console.error("Critical error in fetchBlogPosts:", error);
+    
+    // Log more detailed error information
+    if (error instanceof Error) {
+      console.error("Error name:", error.name);
+      console.error("Error message:", error.message);
+      console.error("Error stack:", error.stack);
+    }
+    
     return { docs: [] };
   }
 });
 
 export default async function Blog() {
-  const blog = await fetchBlogPosts();
+  try {
+    const blog = await fetchBlogPosts();
 
-  if (!blog || blog.docs.length === 0) return <div>No blog posts</div>;
-  return (
-    <Link href={`/blog/${blog.docs[0].slug}`}>
-      <div className="container mx-auto grid grid-cols-2 gap-12 py-24">
+    if (!blog || blog.docs.length === 0) {
+      return (
+        <div className="container mx-auto p-4">
+          <p>No blog posts available at the moment.</p>
+          <p>Error details have been logged for investigation.</p>
+        </div>
+      );
+    }
+
+    return (
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-24">
         {blog.docs.map((post) => (
-          <div key={post.id} className="flex max-w-3xl gap-2 bg-primary-foreground p-2 shadow-xl">
-            {post.featuredImage &&
-              typeof post.featuredImage !== "number" &&
-              post.featuredImage.url && (
+          <Link key={post.id} href={`/blog/${post.slug}`}>
+            <div className="flex max-w-3xl gap-2 bg-primary-foreground p-2 shadow-xl">
+              {post.featuredImage && 
+               typeof post.featuredImage !== "number" && 
+               post.featuredImage.url && (
                 <Image
                   className="object-contain p-2"
                   src={post.featuredImage.url}
@@ -39,43 +69,56 @@ export default async function Blog() {
                   height={100}
                 />
               )}
-            <div className="flex w-full flex-col justify-between">
-              <div className="flex flex-col">
-                <h2 className="py-2 text-2xl font-semibold text-destructive">{post.title}</h2>
-                <p>{post.context}</p>
-              </div>
-              {/* <RichText data={post.content} /> */}
-              <div className="flex w-full flex-col">
-                <div className="flex w-full justify-between py-2">
-                  <div className="flex w-full justify-start gap-3">
-                    {post.tags?.map((item, index) => (
-                      <span
-                        key={index}
-                        className="inline bg-muted-foreground p-[1px] text-background"
-                      >
-                        {item.tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {post.author && typeof post.author !== "number" && post.author.displayName && (
-                    <p>{post.author.displayName}</p>
-                  )}
+              <div className="flex w-full flex-col justify-between">
+                <div className="flex flex-col">
+                  <h2 className="py-2 text-2xl font-semibold text-destructive">
+                    {post.title}
+                  </h2>
+                  <p>{post.context}</p>
                 </div>
-                <div className="flex justify-end">
-                  <p>
-                    {new Date(post.publishDate).toLocaleDateString("en-GB", {
-                      day: "2-digit",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
+                {/* <RichText data={post.content} /> */}
+                <div className="flex w-full flex-col">
+                  <div className="flex w-full justify-between py-2">
+                    <div className="flex w-full justify-start gap-3">
+                      {post.tags?.map((item, index) => (
+                        <span
+                          key={index}
+                          className="inline bg-muted-foreground p-[1px] text-background"
+                        >
+                          {item.tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {post.author && typeof post.author !== "number" && post.author.displayName && (
+                      <p>{post.author.displayName}</p>
+                    )}
+                  </div>
+                  <div className="flex justify-end">
+                    <p>
+                      {new Date(post.publishDate).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
-    </Link>
-  );
+    );
+  } catch (error) {
+    console.error("Unhandled error in Blog component:", error);
+    return (
+      <div className="container mx-auto p-4 text-red-500">
+        <p>An unexpected error occurred while loading blog posts.</p>
+        <p>Our team has been notified. Please try again later.</p>
+      </div>
+    );
+  }
 }
+
+export const revalidate = 3600; // Revalidate every hour
