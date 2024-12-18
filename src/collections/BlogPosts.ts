@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 export const BlogPosts: CollectionConfig = {
   slug: "blog-posts",
@@ -22,6 +23,7 @@ export const BlogPosts: CollectionConfig = {
     {
       name: "content",
       type: "richText",
+      editor: lexicalEditor({}),
       required: true,
     },
     {

@@ -1,6 +1,5 @@
 import { getPayload } from "payload";
 import { cache } from "react";
-//import { RichText } from "@payloadcms/richtext-lexical/react";
 
 import config from "@payload-config";
 import Image from "next/image";
@@ -49,57 +48,52 @@ export default async function Blog() {
     }
 
     return (
-      <div className="container mx-auto grid grid-cols-1 gap-12 py-24 md:grid-cols-2">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-6 py-24 md:grid-cols-2 lg:grid-cols-3">
         {blog.docs.map((post) => (
-          <Link key={post.id} href={`/blog/${post.slug}`}>
-            <div className="flex max-w-3xl gap-2 bg-primary-foreground p-2 shadow-xl">
-              {post.featuredImage &&
-                typeof post.featuredImage !== "number" &&
-                post.featuredImage.url && (
-                  <Image
-                    className="object-contain p-2"
-                    src={post.featuredImage.url}
-                    alt={post.featuredImage.alt || "Blog post image"}
-                    width={100}
-                    height={100}
-                  />
-                )}
-              <div className="flex w-full flex-col justify-between">
-                <div className="flex flex-col">
-                  <h2 className="py-2 text-2xl font-semibold text-destructive">{post.title}</h2>
-                  <p>{post.context}</p>
-                </div>
-                {/* <RichText data={post.content} /> */}
-                <div className="flex w-full flex-col">
-                  <div className="flex w-full justify-between py-2">
-                    <div className="flex w-full justify-start gap-3">
-                      {post.tags?.map((item, index) => (
-                        <span
-                          key={index}
-                          className="inline bg-muted-foreground p-[1px] text-background"
-                        >
-                          {item.tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {post.author && typeof post.author !== "number" && post.author.displayName && (
-                      <p>{post.author.displayName}</p>
+          <div key={post.id} className="overflow-hidden rounded-lg bg-white shadow-md">
+            <Link href={`/blog/${post.slug}`} className="flex flex-col justify-between">
+              <div className="flex h-[500px] flex-col justify-between p-2">
+                <div className="">
+                  {post.featuredImage &&
+                    typeof post.featuredImage !== "number" &&
+                    post.featuredImage.url && (
+                      <Image
+                        className="h-48 w-full object-cover"
+                        src={post.featuredImage.url}
+                        alt={post.featuredImage.alt || "Blog post image"}
+                        width={400}
+                        height={192}
+                      />
                     )}
+
+                  <h2 className="px-px pt-2 text-xl font-bold text-foreground">{post.title}</h2>
+                  <p className="pt- text-muted-foreground">{post.context}</p>
+
+                  {/*  */}
+                </div>
+                <div className="">
+                  <div className="flex flex-wrap gap-2 py-2">
+                    {post.tags?.map((item, index) => (
+                      <span
+                        key={index}
+                        className="inline-block rounded bg-muted-foreground px-2 py-1 text-sm text-background"
+                      >
+                        {item.tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex justify-end">
-                    <p>
-                      {new Date(post.publishDate).toLocaleDateString("en-GB", {
-                        day: "2-digit",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
-                  </div>
+
+                  <p className="text-xs text-gray-400">
+                    {new Date(post.publishDate).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </p>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
     );
