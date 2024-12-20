@@ -2,7 +2,10 @@ import configPromise from "@payload-config";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-import Image from "next/image";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+
+import styles from "./style.module.css";
+
 interface SingleBlogPageProps {
   params: Promise<{
     slug: string;
@@ -26,22 +29,17 @@ const SingleBlogPage = async ({ params }: SingleBlogPageProps) => {
     });
 
     const blog = blogPosts?.docs.length > 0 ? blogPosts.docs[0] : null;
+
     if (!blog) {
       return <div>Blog post not found</div>;
     }
 
+    // Ensure content is in the correct format
+    const lexicalContent: SerializedEditorState =
+      typeof blog.content === "string" ? JSON.parse(blog.content) : blog.content;
     return (
-      <div>
-        {blog.title} <RichText data={blog.content} />
-        {blog.featuredImage && typeof blog.featuredImage !== "number" && blog.featuredImage.url && (
-          <Image
-            className="h-48 w-full object-cover"
-            src={blog.featuredImage.url}
-            alt={blog.featuredImage.alt || "Blog blog image"}
-            width={400}
-            height={192}
-          />
-        )}
+      <div className={styles.lexicalEditor}>
+        <RichText data={lexicalContent} />
       </div>
     );
   } catch (error) {

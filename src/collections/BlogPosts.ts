@@ -1,5 +1,12 @@
 import { CollectionConfig } from "payload";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import {
+  BlocksFeature,
+  FixedToolbarFeature,
+  HeadingFeature,
+  HorizontalRuleFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+} from "@payloadcms/richtext-lexical";
 
 export const BlogPosts: CollectionConfig = {
   slug: "blog-posts",
@@ -23,7 +30,17 @@ export const BlogPosts: CollectionConfig = {
     {
       name: "content",
       type: "richText",
-      editor: lexicalEditor({}),
+      editor: lexicalEditor({
+        features: ({ rootFeatures }) => {
+          return [
+            ...rootFeatures,
+            HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
+            FixedToolbarFeature(),
+            InlineToolbarFeature(),
+            HorizontalRuleFeature(),
+          ];
+        },
+      }),
       required: true,
     },
     {

@@ -1,0 +1,107 @@
+.h1 h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.lexicalEditor img {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.lexicalEditor {
+  max-width: 100%;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #333;
+}
+
+@media (min-width: 640px) {
+  .lexicalEditor {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .lexicalEditor {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lexicalEditor {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .lexicalEditor {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .lexicalEditor {
+    max-width: 1536px;
+  }
+}
+
+.lexicalEditor h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.lexicalEditor h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2a2a2a;
+}
+
+.lexicalEditor p {
+  margin-bottom: 1rem;
+}
+
+.lexicalEditor a {
+  color: #0066cc;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.lexicalEditor a:hover {
+  color: #004080;
+}
+
+.lexicalEditor ul,
+.lexicalEditor ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.lexicalEditor li {
+  margin-bottom: 0.5rem;
+}
+
+.lexicalEditor blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.lexicalEditor code {
+  background-color: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.lexicalEditor pre {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
