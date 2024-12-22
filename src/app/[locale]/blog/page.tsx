@@ -42,7 +42,6 @@ export default async function Blog() {
       return (
         <div className="container mx-auto p-4">
           <p>No blog posts available at the moment.</p>
-          <p>Error details have been logged for investigation.</p>
         </div>
       );
     }

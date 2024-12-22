@@ -7,7 +7,8 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
-
+import { en } from "@payloadcms/translations/languages/en";
+import { tr } from "@payloadcms/translations/languages/tr";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { BlogPosts } from "./collections/BlogPosts";
@@ -27,6 +28,9 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
+  },
+  i18n: {
+    supportedLanguages: { en, tr },
   },
   db: sqliteAdapter({
     client: {

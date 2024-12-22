@@ -103,6 +103,7 @@ export interface Media {
  */
 export interface BlogPost {
   id: number;
+  slug: string;
   title: string;
   context: string;
   content: {
@@ -122,7 +123,6 @@ export interface BlogPost {
   };
   author: number | User;
   publishDate: string;
-  slug: string;
   featuredImage?: (number | null) | Media;
   tags?:
     | {
@@ -234,12 +234,12 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "blog-posts_select".
  */
 export interface BlogPostsSelect<T extends boolean = true> {
+  slug?: T;
   title?: T;
   context?: T;
   content?: T;
   author?: T;
   publishDate?: T;
-  slug?: T;
   featuredImage?: T;
   tags?:
     | T
