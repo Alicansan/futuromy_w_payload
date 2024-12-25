@@ -19,7 +19,6 @@ const SingleBlogPage = async ({ params }: SingleBlogPageProps) => {
 
     const blogPosts = await payload.find({
       collection: "blog-posts",
-      depth: 1,
       where: {
         slug: {
           equals: params.slug,

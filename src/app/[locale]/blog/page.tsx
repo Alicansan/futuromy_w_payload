@@ -1,17 +1,15 @@
 import { getPayload } from "payload";
-import { cache } from "react";
 
 import config from "@payload-config";
 import Image from "next/image";
 import Link from "next/link";
 
-const fetchBlogPosts = cache(async (locale: string) => {
+const fetchBlogPosts = async (locale: string) => {
   try {
     const payload = await getPayload({ config });
 
     const blogPosts = await payload.find({
       collection: "blog-posts",
-      depth: 1,
     });
 
     if (!blogPosts || !blogPosts.docs) {
@@ -49,7 +47,7 @@ const fetchBlogPosts = cache(async (locale: string) => {
 
     return { docs: [] };
   }
-});
+};
 
 export default async function Blog({ params }: { params: { locale: string } }) {
   try {
@@ -126,5 +124,3 @@ export default async function Blog({ params }: { params: { locale: string } }) {
     );
   }
 }
-
-export const revalidate = 3600; // Revalidate every hour
