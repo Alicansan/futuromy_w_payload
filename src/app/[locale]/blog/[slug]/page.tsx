@@ -7,23 +7,22 @@ import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import styles from "./style.module.css";
 
 interface SingleBlogPageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+    locale: string;
+  };
 }
 
 const SingleBlogPage = async ({ params }: SingleBlogPageProps) => {
   try {
-    const resolvedParams = await params;
     const payload = await getPayload({ config: configPromise });
 
-    const pageSlug = resolvedParams.slug;
     const blogPosts = await payload.find({
       collection: "blog-posts",
       depth: 1,
       where: {
         slug: {
-          equals: pageSlug,
+          equals: params.slug,
         },
       },
     });
@@ -34,9 +33,15 @@ const SingleBlogPage = async ({ params }: SingleBlogPageProps) => {
       return <div>Blog post not found</div>;
     }
 
+    const localizedContent =
+      blog.i18n?.find((content) => content.language === params.locale) || blog.i18n?.[0];
+
     // Ensure content is in the correct format
     const lexicalContent: SerializedEditorState =
-      typeof blog.content === "string" ? JSON.parse(blog.content) : blog.content;
+      typeof localizedContent?.content === "string"
+        ? JSON.parse(localizedContent?.content)
+        : localizedContent?.content;
+
     return (
       <div className={styles.lexicalEditor}>
         <RichText data={lexicalContent} />

@@ -46,7 +46,6 @@ export const BlogPosts: CollectionConfig = {
         description: "Automatically generated from title, but can be customized",
       },
     },
-
     {
       name: "title",
       unique: true,
@@ -54,26 +53,51 @@ export const BlogPosts: CollectionConfig = {
       required: true,
     },
     {
-      name: "context",
-      type: "text",
-      required: true,
-    },
-    {
-      name: "content",
-      type: "richText",
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-            HorizontalRuleFeature(),
-          ];
+      name: "i18n",
+      admin: {
+        description: "Add many languages to your blog post for translation purposes",
+      },
+      type: "array",
+      fields: [
+        {
+          name: "language",
+          type: "select",
+          options: [
+            { label: "English", value: "en" },
+            { label: "Turkish", value: "tr" },
+          ],
+          required: true,
         },
-      }),
-      required: true,
+        {
+          name: "langtitle",
+          unique: true,
+          type: "text",
+          required: true,
+        },
+        {
+          name: "context",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "content",
+          type: "richText",
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => {
+              return [
+                ...rootFeatures,
+                HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
+                FixedToolbarFeature(),
+                InlineToolbarFeature(),
+                HorizontalRuleFeature(),
+              ];
+            },
+          }),
+          required: true,
+        },
+      ],
     },
+
     {
       name: "author",
       type: "relationship",

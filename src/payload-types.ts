@@ -105,22 +105,29 @@ export interface BlogPost {
   id: number;
   slug: string;
   title: string;
-  context: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  i18n?:
+    | {
+        language: 'en' | 'tr';
+        langtitle: string;
+        context: string;
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
   author: number | User;
   publishDate: string;
   featuredImage?: (number | null) | Media;
@@ -236,8 +243,15 @@ export interface MediaSelect<T extends boolean = true> {
 export interface BlogPostsSelect<T extends boolean = true> {
   slug?: T;
   title?: T;
-  context?: T;
-  content?: T;
+  i18n?:
+    | T
+    | {
+        language?: T;
+        langtitle?: T;
+        context?: T;
+        content?: T;
+        id?: T;
+      };
   author?: T;
   publishDate?: T;
   featuredImage?: T;

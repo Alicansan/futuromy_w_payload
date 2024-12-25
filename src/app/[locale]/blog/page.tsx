@@ -3,9 +3,9 @@ import { cache } from "react";
 
 import config from "@payload-config";
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
-const fetchBlogPosts = cache(async () => {
+const fetchBlogPosts = cache(async (locale: string) => {
   try {
     const payload = await getPayload({ config });
 
@@ -19,7 +19,24 @@ const fetchBlogPosts = cache(async () => {
       return { docs: [] };
     }
 
-    return blogPosts;
+    const localizedBlogPosts = blogPosts.docs.map((post) => {
+      if (!post.i18n || post.i18n.length === 0) {
+        return {
+          ...post,
+          localizedTitle: post.title || "Untitled",
+          localizedContext: "No context available",
+        };
+      }
+      const localizedPost = post.i18n.find((item) => item.language === locale) || post.i18n[0];
+
+      return {
+        ...post,
+        localizedTitle: localizedPost?.langtitle || post.title || "Untitled",
+        localizedContext: localizedPost?.context || "No context available",
+      };
+    });
+
+    return { ...blogPosts, docs: localizedBlogPosts };
   } catch (error) {
     console.error("Critical error in fetchBlogPosts:", error);
 
@@ -34,9 +51,10 @@ const fetchBlogPosts = cache(async () => {
   }
 });
 
-export default async function Blog() {
+export default async function Blog({ params }: { params: { locale: string } }) {
   try {
-    const blog = await fetchBlogPosts();
+    const { locale } = await params;
+    const blog = await fetchBlogPosts(locale);
 
     if (!blog || blog.docs.length === 0) {
       return (
@@ -50,7 +68,7 @@ export default async function Blog() {
       <div className="container mx-auto grid grid-cols-1 items-center gap-6 py-24 md:grid-cols-2 lg:grid-cols-3">
         {blog.docs.map((post) => (
           <div key={post.id} className="overflow-hidden rounded-lg bg-white shadow-md">
-            <Link href={`/blog/${post.slug}`} className="flex flex-col justify-between">
+            <Link href={`/${locale}/blog/${post.slug}`} className="flex flex-col justify-between">
               <div className="flex h-[500px] flex-col justify-between p-2">
                 <div className="">
                   {post.featuredImage &&
@@ -65,8 +83,10 @@ export default async function Blog() {
                       />
                     )}
 
-                  <h2 className="px-px pt-2 text-xl font-bold text-foreground">{post.title}</h2>
-                  <p className="pt- text-muted-foreground">{post.context}</p>
+                  <h2 className="px-px pt-2 text-xl font-bold text-foreground">
+                    {post.localizedTitle}
+                  </h2>
+                  <p className="pt- text-muted-foreground">{post.localizedContext}</p>
 
                   {/*  */}
                 </div>
