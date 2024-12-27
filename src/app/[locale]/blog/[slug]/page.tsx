@@ -34,7 +34,7 @@ const SingleBlogPage = cache(async ({ params }: SingleBlogPageProps) => {
     }
 
     const localizedContent =
-      blog.i18n?.find((content) => content.language === params.locale) || blog.i18n?.[0];
+      (await blog.i18n?.find((content) => content.language === params.locale)) || blog.i18n?.[0];
 
     // Ensure content is in the correct format
     const lexicalContent: SerializedEditorState =

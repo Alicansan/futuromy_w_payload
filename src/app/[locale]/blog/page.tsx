@@ -72,10 +72,10 @@ const Blog = cache(async ({ params }: { params: { locale: string } }) => {
                 <div className="">
                   {post.featuredImage &&
                     typeof post.featuredImage !== "number" &&
-                    post.featuredImage.url && (
+                    post.featuredImage._key && (
                       <Image
                         className="h-48 w-full object-cover"
-                        src={post.featuredImage.url}
+                        src={`https://utfs.io/f/${post.featuredImage._key}`}
                         alt={post.featuredImage.alt || "Blog post image"}
                         width={400}
                         height={300}
