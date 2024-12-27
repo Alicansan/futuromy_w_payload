@@ -65,7 +65,7 @@ export default async function Blog({ params }: { params: { locale: string } }) {
 
     return (
       <div className="container mx-auto grid grid-cols-1 items-center gap-6 py-24 md:grid-cols-2 lg:grid-cols-3">
-        {blog.docs.map((post) => (
+        {blog.docs.map((post, index) => (
           <div key={post.id} className="overflow-hidden rounded-lg bg-white shadow-md">
             <Link href={`/${locale}/blog/${post.slug}`} className="flex flex-col justify-between">
               <div className="flex h-[500px] flex-col justify-between p-2">
@@ -79,7 +79,7 @@ export default async function Blog({ params }: { params: { locale: string } }) {
                         alt={post.featuredImage.alt || "Blog post image"}
                         width={400}
                         height={300}
-                        placeholder="blur"
+                        priority={index < 3}
                       />
                     )}
 
