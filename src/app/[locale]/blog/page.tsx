@@ -50,7 +50,7 @@ const fetchBlogPosts = cache(async (locale: string) => {
   }
 });
 
-export default async function Blog({ params }: { params: { locale: string } }) {
+const Blog = cache(async ({ params }: { params: { locale: string } }) => {
   try {
     const { locale } = await params;
     const blog = await fetchBlogPosts(locale);
@@ -124,6 +124,7 @@ export default async function Blog({ params }: { params: { locale: string } }) {
       </div>
     );
   }
-}
+});
+export default Blog;
 export const dynamic = "force-static";
 export const revalidate = 86400;
