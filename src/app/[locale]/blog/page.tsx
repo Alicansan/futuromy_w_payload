@@ -3,8 +3,9 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import Image from "next/image";
 import Link from "next/link";
+import { cache } from "react";
 
-const fetchBlogPosts = async (locale: string) => {
+const fetchBlogPosts = cache(async (locale: string) => {
   try {
     const payload = await getPayload({ config });
 
@@ -47,7 +48,7 @@ const fetchBlogPosts = async (locale: string) => {
 
     return { docs: [] };
   }
-};
+});
 
 export default async function Blog({ params }: { params: { locale: string } }) {
   try {
@@ -77,7 +78,8 @@ export default async function Blog({ params }: { params: { locale: string } }) {
                         src={post.featuredImage.url}
                         alt={post.featuredImage.alt || "Blog post image"}
                         width={400}
-                        height={192}
+                        height={300}
+                        placeholder="blur"
                       />
                     )}
 
@@ -124,3 +126,5 @@ export default async function Blog({ params }: { params: { locale: string } }) {
     );
   }
 }
+export const dynamic = "force-static";
+export const revalidate = 86400;

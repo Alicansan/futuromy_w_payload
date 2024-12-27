@@ -5,6 +5,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 
 import styles from "./style.module.css";
+import { cache } from "react";
 
 interface SingleBlogPageProps {
   params: {
@@ -13,7 +14,7 @@ interface SingleBlogPageProps {
   };
 }
 
-const SingleBlogPage = async ({ params }: SingleBlogPageProps) => {
+const SingleBlogPage = cache(async ({ params }: SingleBlogPageProps) => {
   try {
     const payload = await getPayload({ config: configPromise });
 
@@ -50,6 +51,8 @@ const SingleBlogPage = async ({ params }: SingleBlogPageProps) => {
     console.error("Blog page rendering error:", error);
     notFound();
   }
-};
+});
 
 export default SingleBlogPage;
+export const dynamic = "force-static";
+export const revalidate = 86400;
