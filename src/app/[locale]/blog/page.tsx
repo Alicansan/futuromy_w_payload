@@ -70,6 +70,7 @@ export default async function Blog({ params }: { params: { locale: string } }) {
             <Link href={`/${locale}/blog/${post.slug}`} className="flex flex-col justify-between">
               <div className="flex h-[500px] flex-col justify-between p-2">
                 <div className="">
+                  cache(
                   {post.featuredImage &&
                     typeof post.featuredImage !== "number" &&
                     post.featuredImage.url && (
@@ -82,12 +83,11 @@ export default async function Blog({ params }: { params: { locale: string } }) {
                         priority={index < 3}
                       />
                     )}
-
+                  )
                   <h2 className="px-px pt-2 text-xl font-bold text-foreground">
                     {post.localizedTitle}
                   </h2>
                   <p className="pt- text-muted-foreground">{post.localizedContext}</p>
-
                   {/*  */}
                 </div>
                 <div className="">
