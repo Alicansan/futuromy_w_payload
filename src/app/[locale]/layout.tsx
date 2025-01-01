@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Dancing_Script } from 'next/font/google';
 import { Space_Grotesk } from 'next/font/google';
-
+import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 export const metadata: Metadata = {
@@ -53,6 +53,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </NextIntlClientProvider>
       </body>
