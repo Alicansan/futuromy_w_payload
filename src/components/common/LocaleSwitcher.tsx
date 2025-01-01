@@ -19,7 +19,7 @@ const LocaleSwitcher = () => {
     startTransition(() => {
       const currentPath = window.location.pathname;
       const pathWithoutLocale = currentPath.split("/").slice(2).join("/");
-      router.replace(`/${nextLocale}/${pathWithoutLocale}`);
+      router.replace(`/${nextLocale}/${pathWithoutLocale || ""}`, { scroll: false });
     });
   };
 

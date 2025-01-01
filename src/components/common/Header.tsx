@@ -1,12 +1,13 @@
 "use client";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
+
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import ClientLinkWithRef from "node_modules/next-intl/dist/types/src/navigation/react-client/ClientLink";
+import { useLocale } from "next-intl";
 import LocaleSwitcher from "./LocaleSwitcher";
+import { Link } from "@/i18n/routing";
 
 const navElements = [
   { href: "/#projects", key: "projects" },
@@ -17,6 +18,7 @@ const navElements = [
 ];
 
 export default function Header() {
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
@@ -87,7 +89,7 @@ export default function Header() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       <div className="container sticky top-0 z-20 mx-auto flex h-12 flex-wrap justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" prefetch={true}>
+        <Link href={"/"} prefetch={true}>
           <Image
             alt="futuromy.com"
             title="futuromy.com"
@@ -108,7 +110,7 @@ export default function Header() {
             <Link
               className="text-nowrap font-medium hover:text-muted-foreground"
               key={element.key}
-              href={element.href}
+              href={element.href.startsWith("/") ? element.href : `/#${element.href}`}
               onClick={element.href.startsWith("#") ? handleScrollToSection : undefined}
             >
               {t(`navElements.${element.key}`)}
@@ -129,7 +131,7 @@ export default function Header() {
             <Link
               className="py-2 text-sm font-medium focus:text-muted-foreground"
               key={element.key}
-              href={element.href}
+              href={element.href.startsWith("/") ? element.href : `/#${element.href}`}
               onClick={(e) => {
                 if (element.href.startsWith("#")) {
                   handleScrollToSection(e);
