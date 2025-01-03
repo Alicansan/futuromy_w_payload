@@ -1,31 +1,33 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from 'src/i18n/routing';
-import type { Metadata } from 'next';
-import './globals.css';
-import { Dancing_Script } from 'next/font/google';
-import { Space_Grotesk } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "src/i18n/routing";
+import type { Metadata } from "next";
+import "./globals.css";
+import { Dancing_Script } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
+import ThemeContextProvider from "@/components/ThemeContext";
+import ThemeSwitch from "@/components/ThemeSwitch";
 export const metadata: Metadata = {
-  title: 'Futuromy',
-  description: 'Futuristic Way of Deployment',
+  title: "Futuromy",
+  description: "Futuristic Way of Deployment",
   icons: {
-    icon: '/icons/favicon.ico',
+    icon: "/icons/favicon.ico",
   },
 };
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 const dancingScript = Dancing_Script({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-dancing-script',
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-dancing-script",
 });
 export default async function LocaleLayout({
   children,
@@ -50,12 +52,15 @@ export default async function LocaleLayout({
       className={`${spaceGrotesk.className} ${dancingScript.variable} scroll-smooth`}
     >
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <Analytics />
-          <Footer />
-        </NextIntlClientProvider>
+        <ThemeContextProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            {children}
+            <Analytics />
+            <Footer />
+            <ThemeSwitch />
+          </NextIntlClientProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );
