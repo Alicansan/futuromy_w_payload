@@ -13,7 +13,6 @@
   max-width: 100%;
   margin: 0 auto;
   line-height: 1.6;
-  color: #333;
 }
 
 @media (min-width: 640px) {
@@ -50,7 +49,6 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #1a1a1a;
 }
 
 .lexicalEditor h2 {
@@ -58,7 +56,6 @@
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  color: #2a2a2a;
 }
 
 .lexicalEditor p {
@@ -66,13 +63,12 @@
 }
 
 .lexicalEditor a {
-  color: #0066cc;
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .lexicalEditor a:hover {
-  color: #004080;
+  color: theme("colors.primary.DEFAULT");
 }
 
 .lexicalEditor ul,
@@ -88,19 +84,17 @@
 .lexicalEditor blockquote {
   border-left: 4px solid #ccc;
   padding-left: 1rem;
-  color: #666;
+
   font-style: italic;
 }
 
 .lexicalEditor code {
-  background-color: #f4f4f4;
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-family: monospace;
 }
 
 .lexicalEditor pre {
-  background-color: #f4f4f4;
   padding: 1rem;
   border-radius: 4px;
   overflow-x: auto;

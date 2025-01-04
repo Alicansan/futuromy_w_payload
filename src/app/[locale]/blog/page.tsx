@@ -66,7 +66,7 @@ const Blog = cache(async ({ params }: { params: { locale: string } }) => {
     return (
       <div className="container mx-auto grid grid-cols-1 items-center gap-6 py-24 md:grid-cols-2 lg:grid-cols-3">
         {blog.docs.map((post, index) => (
-          <div key={post.id} className="overflow-hidden rounded-lg bg-white shadow-md">
+          <div key={post.id} className="overflow-hidden rounded-lg bg-secondary shadow-md">
             <Link href={`/${locale}/blog/${post.slug}`} className="flex flex-col justify-between">
               <div className="flex h-[500px] flex-col justify-between p-2">
                 <div className="">
@@ -94,7 +94,7 @@ const Blog = cache(async ({ params }: { params: { locale: string } }) => {
                     {post.tags?.map((item, index) => (
                       <span
                         key={index}
-                        className="inline-block rounded bg-muted-foreground px-2 py-1 text-sm text-background"
+                        className="inline-block rounded bg-foreground px-2 py-1 text-sm text-background"
                       >
                         {item.tag}
                       </span>
