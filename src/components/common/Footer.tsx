@@ -1,19 +1,19 @@
-import { link } from 'fs';
-import { Github, Linkedin } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import { Link } from '@/i18n/routing';
-import React from 'react';
+import { link } from "fs";
+import { Github, Linkedin } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import React from "react";
+import NavigationLink from "./NavigationLink";
 
 const Footer = () => {
-  const t = useTranslations('Footer');
-  const links = t.raw('links');
+  const t = useTranslations("Footer");
+  const links = t.raw("links");
 
   return (
     <footer className="container mx-auto my-4 px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex flex-row justify-between">
         <div className="mx-auto flex max-w-xl flex-col items-center">
-          <Link href="/">
+          <NavigationLink href="/">
             <Image
               alt="futuromy.com"
               title="futuromy.com"
@@ -21,15 +21,15 @@ const Footer = () => {
               width={150}
               height={42}
             />
-          </Link>
-          <p className="my-4 text-sm">{t('paragraph')}</p>
+          </NavigationLink>
+          <p className="my-4 text-sm">{t("paragraph")}</p>
           <div className="flex gap-4">
-            <Link href="https://github.com/Futuromy">
+            <NavigationLink href="https://github.com/Futuromy">
               <Github />
-            </Link>
-            <Link href="https://www.linkedin.com/company/futuromy/posts/?feedView=all">
+            </NavigationLink>
+            <NavigationLink href="https://www.linkedin.com/company/futuromy/posts/?feedView=all">
               <Linkedin />
-            </Link>
+            </NavigationLink>
           </div>
         </div>
       </div>
@@ -40,29 +40,25 @@ const Footer = () => {
               Link: string;
               name: string;
             },
-            index: number,
+            index: number
           ) => (
-            <Link
-              key={index}
-              href={item.Link}
-              className="hover:text-foreground"
-            >
+            <NavigationLink key={index} href={item.Link} className="hover:text-foreground">
               {item.name}
-            </Link>
-          ),
+            </NavigationLink>
+          )
         )}
       </div>
       <div className="mx-auto my-2 flex justify-center gap-4">
-        <p>{t('reserved')}</p>
-        <p>{t('designed')}</p>
+        <p>{t("reserved")}</p>
+        <p>{t("designed")}</p>
       </div>
       <div className="mx-auto flex justify-center gap-4">
-        <Link href="/terms" className="hover:text-muted-foreground">
-          {t('terms')}
-        </Link>
-        <Link href={'/privacy'} className="hover:text-muted-foreground">
-          <p>{t('privacy')}</p>
-        </Link>
+        <NavigationLink href="/terms" className="hover:text-muted-foreground">
+          {t("terms")}
+        </NavigationLink>
+        <NavigationLink href={"/privacy"} className="hover:text-muted-foreground">
+          <p>{t("privacy")}</p>
+        </NavigationLink>
       </div>
     </footer>
   );

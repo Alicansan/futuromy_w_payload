@@ -15,7 +15,7 @@ const navElements = [
   { href: "/#services", key: "services" },
   { href: "/#pricing", key: "pricing" },
   { href: "/costcalculator", key: "calculator", isHash: false },
-  { href: "/blog", key: "blog", isHash: false, prefetch: true },
+  { href: "/blog", key: "blog", isHash: false },
 ];
 
 export default function Header() {
@@ -89,7 +89,7 @@ export default function Header() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       <div className="container sticky top-0 z-20 mx-auto flex h-12 flex-wrap justify-between px-4 sm:px-6 lg:px-8">
-        <NavigationLink href={"/"} prefetch={true}>
+        <NavigationLink href={"/"}>
           <Image
             alt="futuromy.com"
             title="futuromy.com"
