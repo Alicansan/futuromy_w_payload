@@ -86,3 +86,15 @@
     display: none !important;
   }
 }
+
+@layer components {
+  .transparent-div {
+    mask-image: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0) 10%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 1) 70%,
+      rgba(255, 0, 0, 0) 90%
+    );
+  }
+}

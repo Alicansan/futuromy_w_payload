@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
-import HeroSection from '../common/HeroSection';
-import Comparison from '../../components/common/Comparison';
-import InfiniteScroll from '@/components/common/InfiniteScroll';
-import ThreeSteps from '@/components/common/ThreeSteps';
-import Packages from '../common/Packages';
-import Faq from '../common/Faq';
-import AppointmentPicker from '../common/AppointmentPicker';
+import HeroSection from "../common/HeroSection";
+import Comparison from "../../components/common/Comparison";
+import InfiniteScroll from "@/components/common/InfiniteScroll";
+import ThreeSteps from "@/components/common/ThreeSteps";
+import Packages from "../common/Packages";
+import Faq from "../common/Faq";
+import AppointmentPicker from "../common/AppointmentPicker";
 
-import Projects from '../common/Projects';
-import PopupAppointment from '../common/PopupAppointment';
+import Projects from "../common/Projects";
+import PopupAppointment from "../common/PopupAppointment";
 export default function HomePage() {
-  const t = useTranslations('HomePage');
+  const t = useTranslations("HomePage");
   return (
     <div className="relative z-0 mx-auto px-4">
       <HeroSection />

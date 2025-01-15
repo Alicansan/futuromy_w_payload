@@ -5,9 +5,10 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useLocale } from "next-intl";
+
 import LocaleSwitcher from "./LocaleSwitcher";
-import { Link } from "@/i18n/routing";
+
+import NavigationLink from "./NavigationLink";
 
 const navElements = [
   { href: "/#projects", key: "projects" },
@@ -18,7 +19,6 @@ const navElements = [
 ];
 
 export default function Header() {
-  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
@@ -89,7 +89,7 @@ export default function Header() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       <div className="container sticky top-0 z-20 mx-auto flex h-12 flex-wrap justify-between px-4 sm:px-6 lg:px-8">
-        <Link href={"/"} prefetch={true}>
+        <NavigationLink href={"/"} prefetch={true}>
           <Image
             alt="futuromy.com"
             title="futuromy.com"
@@ -97,7 +97,7 @@ export default function Header() {
             width={150}
             height={42}
           />
-        </Link>
+        </NavigationLink>
 
         <div className="flex flex-col items-center md:hidden">
           <button id="menu-button" aria-label="Toggle Menu" onClick={() => setIsOpen(!isOpen)}>
@@ -107,14 +107,14 @@ export default function Header() {
 
         <nav className="z-20 hidden items-center space-x-8 md:flex">
           {navElements.map((element) => (
-            <Link
+            <NavigationLink
               className="text-nowrap font-medium hover:text-muted-foreground"
               key={element.key}
               href={element.href.startsWith("/") ? element.href : `/#${element.href}`}
               onClick={element.href.startsWith("#") ? handleScrollToSection : undefined}
             >
               {t(`navElements.${element.key}`)}
-            </Link>
+            </NavigationLink>
           ))}
         </nav>
 
@@ -128,7 +128,7 @@ export default function Header() {
             <LocaleSwitcher />
           </div>
           {navElements.map((element) => (
-            <Link
+            <NavigationLink
               className="py-2 text-sm font-medium focus:text-muted-foreground"
               key={element.key}
               href={element.href.startsWith("/") ? element.href : `/#${element.href}`}
@@ -141,7 +141,7 @@ export default function Header() {
               }}
             >
               {t(`navElements.${element.key}`)}
-            </Link>
+            </NavigationLink>
           ))}
         </div>
 
