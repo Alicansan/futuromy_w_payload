@@ -1,4 +1,8 @@
 {
+  "LocaleSwitcher": {
+    "label": "Dil Seçin",
+    "locale": "{locale, select, tr {TR Türkçe} en {🇺🇸 English} other {Unknown}}"
+  },
   "HomePage": {},
   "Header": {
     "navElements": {

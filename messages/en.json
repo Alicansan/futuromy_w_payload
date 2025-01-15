@@ -1,4 +1,8 @@
 {
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, tr {TR Türkçe} en {🇺🇸 English} other {Unknown}}"
+  },
   "HomePage": {},
   "Header": {
     "navElements": {
@@ -182,12 +186,7 @@
     "questions": [
       {
         "question": "What is your primary goal?",
-        "answers": [
-          "Validate Idea",
-          "Test Market",
-          "Attract Investors",
-          "Get Eearly Users"
-        ]
+        "answers": ["Validate Idea", "Test Market", "Attract Investors", "Get Eearly Users"]
       },
       {
         "question": "What is your budget?",

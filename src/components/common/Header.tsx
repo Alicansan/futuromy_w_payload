@@ -6,9 +6,8 @@ import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
-import LocaleSwitcher from "./LocaleSwitcher";
-
 import NavigationLink from "./NavigationLink";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const navElements = [
   { href: "/#projects", key: "projects" },
