@@ -8,21 +8,22 @@ import styles from "./style.module.css";
 import { cache } from "react";
 
 interface SingleBlogPageProps {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }
 
 const SingleBlogPage = cache(async ({ params }: SingleBlogPageProps) => {
   try {
+    const { slug, locale } = await params;
     const payload = await getPayload({ config: configPromise });
 
     const blogPosts = await payload.find({
       collection: "blog-posts",
       where: {
         slug: {
-          equals: params.slug,
+          equals: slug,
         },
       },
     });
@@ -34,7 +35,7 @@ const SingleBlogPage = cache(async ({ params }: SingleBlogPageProps) => {
     }
 
     const localizedContent =
-      (await blog.i18n?.find((content) => content.language === params.locale)) || blog.i18n?.[0];
+      (await blog.i18n?.find((content) => content.language === locale)) || blog.i18n?.[0];
 
     // Ensure content is in the correct format
     const lexicalContent: SerializedEditorState =

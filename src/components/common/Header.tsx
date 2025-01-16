@@ -13,8 +13,8 @@ const navElements = [
   { href: "/#projects", key: "projects" },
   { href: "/#services", key: "services" },
   { href: "/#pricing", key: "pricing" },
-  { href: "/costcalculator", key: "calculator", isHash: false },
-  { href: "/blog", key: "blog", isHash: false },
+  { href: "/costcalculator", key: "calculator" },
+  { href: "/blog", key: "blog" },
 ];
 
 export default function Header() {
